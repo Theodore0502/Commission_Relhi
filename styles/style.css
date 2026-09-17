@@ -616,6 +616,14 @@ html, body {
   scrollbar-width: thin;
 }
 
+/* Container chứa các dòng câu văn tự */
+.vertical-lore-body-container {
+  display: flex;
+  flex-direction: row-reverse; /* Đọc từ phải sang trái theo thư pháp cổ */
+  gap: clamp(12px, 1.4vw, 22px);
+  height: 100%;
+}
+
 /* Individual Vertical Text Column */
 .vertical-col {
   writing-mode: vertical-rl;
@@ -624,6 +632,23 @@ html, body {
   line-height: 2.25;
   overflow: visible;
   height: 100%;
+  opacity: 0;
+  transform: translateY(-26px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Hiệu ứng rơi xuống cùng lúc (Synchronized drop) */
+.vertical-col.dropped {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Trạng thái rút nhẹ lên trên khi chuyển bước mới */
+.vertical-col.lifting {
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
 }
 
 .vertical-badge {
@@ -633,6 +658,7 @@ html, body {
   color: var(--text-main);
   border-right: 2px solid var(--cinnabar-red);
   padding-right: 6px;
+  flex-shrink: 0;
 }
 
 .vertical-quote {
@@ -640,12 +666,20 @@ html, body {
   font-style: italic;
   font-size: clamp(0.9rem, 1.5vh, 1.08rem);
   color: var(--cinnabar-red);
+  flex-shrink: 0;
 }
 
-.vertical-body {
+/* Mỗi dòng là một câu riêng biệt */
+.vertical-body-line {
   font-size: clamp(0.79rem, 1.3vh, 0.9rem);
   color: var(--text-muted);
-  text-align: justify;
+  white-space: nowrap; /* Giữ câu trọn vẹn trên 1 dòng dọc */
+  cursor: help;
+  transition: color 0.2s ease, opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vertical-body-line:hover {
+  color: var(--text-main);
 }
 
 /* ==========================================================================
@@ -1011,19 +1045,7 @@ body.page-active .step-item:nth-child(1) { transition-delay: 0.05s; }
 body.page-active .step-item:nth-child(2) { transition-delay: 0.10s; }
 body.page-active .step-item:nth-child(3) { transition-delay: 0.15s; }
 
-/* 4. Right Wing Vertical Lore Columns (Cascade Drop from top) */
-.vertical-col {
-  opacity: 0;
-  transform: translateY(-14px);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-body.page-active .vertical-col {
-  opacity: 1;
-  transform: translateY(0);
-}
-body.page-active #lore-badge { transition-delay: 0.06s; }
-body.page-active #lore-quote { transition-delay: 0.12s; }
-body.page-active #lore-body  { transition-delay: 0.18s; }
+/* 4. Right Wing Vertical Lore Columns: Được quản lý đồng bộ bởi class .dropped và .lifting */
 
 /* 5. Gothic Medieval Corners */
 .medieval-corner {

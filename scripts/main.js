@@ -95,30 +95,93 @@ function initLoader() {
 /* ==========================================================================
    2. SIMPLIFIED CHINESE DATA WITH VIETNAMESE TRANSLATIONS
    ========================================================================== */
+/* ==========================================================================
+   2. SIMPLIFIED CHINESE DATA WITH VIETNAMESE TRANSLATIONS (CÁC CÂU DÒNG DỌC)
+   ========================================================================== */
 const STEP_DATA = {
   1: {
     badge: '礼 · 晞 · 吞 · 日',
     vnBadge: 'Lễ Hy (Lǐ Xī) · Thôn Nhật Thần Lang (Hồ sơ Thần Tướng Thái Cổ)',
     quote: '“ 烈阳入口化长啸，九天沉寂尽成荒；独踏玄虚吞烈曜，万古乾坤一念藏。 ”',
     vnQuote: '“Thái dương nuốt trọn hóa thành tiếng gầm xé toạc đêm đen, chín tầng trời chìm vào tĩnh mịch hóa cõi hoang sơ. Một mình dẫm đạp hư vô nuốt vầng thiên nhật, cõi vạn cổ càn khôn gom trọn trong một ý niệm.”',
-    body: '荒古异种吞日神狼，自太初混沌烈火中孕育而生。其身躯如玄铁山岳，骨骼镌刻着上古吞噬神纹，体内深处凝铸着至纯至狂之太阳炽核。相传洪荒初开，天穹十日肆虐，万物生灵焦土千里。神狼踏碎太虚长空，张口生吞九天炽烈神轮，硬生生将焚尽众生的暴虐太阳锁入狼骨血脉与神魂深处。无尽烈阳在其脏腑间化为苍茫狂焰，双眸凝视之处，炽日黯然，八荒失色；长啸骤起之时，群星战栗，唯留亘古长夜与滔天炎威。',
-    vnBody: 'Dị chủng hoang cổ Thôn Nhật Thần Lang, sinh ra giữa ngọn lửa hỗn độn thuở hồng hoang thái sơ. Thân hình hắn tựa núi non huyền thiết sừng sững, khung xương khắc sâu thần văn thôn phệ viễn cổ, sâu thẳm trong cơ thể ngưng tụ lõi thái dương chí thuần cuồng bạo. Thuở hồng hoang vạn vật chìm trong thảm cảnh mười vầng mặt trời thiêu đốt cõi trần, Thần Lang đạp rách hư không, há miệng nuốt trọn vầng thái dương chín tầng trời, khóa vĩnh viễn nhiệt lượng cuồng nộ vào từng giọt huyết mạch và cốt tủy. Nơi ánh mắt hắn nhìn qua, vạn vật nín lặng, nhật nguyệt lu mờ, chỉ còn lại tiếng gầm thấu tận cửu trùng thiên cùng uy áp cuồng diễm vô biên.'
+    bodyLines: [
+      {
+        cn: '荒古异种吞日神狼，自太初混沌烈火中孕育而生。',
+        vn: 'Dị chủng hoang cổ Thôn Nhật Thần Lang, sinh ra giữa ngọn lửa hỗn độn thuở hồng hoang thái sơ.'
+      },
+      {
+        cn: '其身躯如玄铁山岳，骨骼镌刻着上古吞噬神纹，体内深处凝铸着至纯至狂之太阳炽核。',
+        vn: 'Thân hình hắn tựa núi non huyền thiết sừng sững, khung xương khắc sâu thần văn thôn phệ viễn cổ, sâu thẳm trong cơ thể ngưng tụ lõi thái dương chí thuần cuồng bạo.'
+      },
+      {
+        cn: '相传洪荒初开，天穹十日肆虐，万物生灵焦土千里。',
+        vn: 'Thuở hồng hoang mới khai mở, mười vầng mặt trời thiêu đốt dữ dội trên vòm trời, vạn vật sinh linh chìm trong biển lửa cháy rụi ngàn dặm.'
+      },
+      {
+        cn: '神狼踏碎太虚长空，张口生吞九天炽烈神轮，硬生生将焚尽众生的暴虐太阳锁入狼骨血脉与神魂深处。',
+        vn: 'Thần Lang đạp rách hư không, há miệng nuốt trọn chín vầng thái dương rực lửa, khóa vĩnh viễn năng lượng cuồng bạo thiêu rụi chúng sinh vào huyết mạch và thần hồn.'
+      },
+      {
+        cn: '无尽烈阳在其脏腑间化为苍茫狂焰，双眸凝视之处，炽日黯然，八荒失色；长啸骤起之时，群星战栗，唯留亘古长夜与滔天炎威。',
+        vn: 'Nơi ánh mắt hắn nhìn qua, nhật nguyệt lu mờ, cõi trần tịch mịch; khi tiếng gầm vang lên, ngàn sao run rẩy, chỉ còn lại cõi đêm vĩnh hằng và uy áp cuồng diễm vô biên.'
+      }
+    ]
   },
   2: {
     badge: '荒 · 殿 · 苍 · 茫',
     vnBadge: 'Quyển 2: Hoang Điện Thương Mang · Phế tích thần điện & Huyết đằng sinh sôi',
     quote: '“ 破殿荒石撕赤魄，残碑折戟镇幽芒；太初神火焚不灭，古木狂藤绕断梁。 ”',
     vnQuote: '“Phế tích đền cổ xé toạc xích phách, bia tàn gươm gãy trấn giữ u mang. Lửa thần thái sơ cháy mãi ngàn kiếp không tắt, dây leo huyết đằng cuồng cuộn quấn quanh phế trụ hoang tàn.”',
-    body: '太古诸界崩解覆灭之际，天穹陷落，神祇陨灭。神狼自诸神葬身之地踏步而下，驻足于孤寂荒凉之古神殿遗迹之上。那古殿之高耸石柱与残垣断壁，皆由洪荒混沌神岩所筑。数万载岁月更迭，古殿残柱间蔓延滋长出猩红可怖之古老血藤，此非凡木，乃是常年贪婪吸纳神狼每一次吐息溢出的太阳余火与神兽暴戾狂煞，方得以在死寂荒域中逆天疯长。断壁残垣在赤金烈炎灼烧下流转着古神阵纹，静静见证着一代神狼吞噬天日后的孤绝与霸烈。',
-    vnBody: 'Thuở các giới thái cổ sụp đổ tan tành, vòm trời rách toạc, chư thần vẫn lạc. Thần Lang bước ra từ cõi chôn vùi thần ma, ngự trên phế tích cổ điện ngàn năm hiu quạnh. Những trụ đá chọc trời và vách thành hoang phế được đúc từ thần nham hỗn độn viễn cổ. Trải qua muôn vàn năm tháng, quấn quanh các phế tích ấy là loài huyết đằng đỏ thẫm hung bạo, vốn nhờ tham lam hấp thụ ngọn lửa thái dương và sát khí cuồng bạo tỏa ra từ từng hơi thở của Thần Lang mà sinh sôi nghịch thiên giữa cõi hoang tàn, vĩnh hằng bảo hộ nơi thần điện ngự tọa.'
+    bodyLines: [
+      {
+        cn: '太古诸界崩解覆灭之际，天穹陷落，神祇陨灭。',
+        vn: 'Thuở các giới thái cổ sụp đổ tan tành, vòm trời rách toạc, chư thần vẫn lạc.'
+      },
+      {
+        cn: '神狼自诸神葬身之地踏步而下，驻足于孤寂荒凉之古神殿遗迹之上。',
+        vn: 'Thần Lang bước ra từ cõi chôn vùi thần ma, ngự trên phế tích cổ điện ngàn năm hiu quạnh.'
+      },
+      {
+        cn: '那古殿之高耸石柱与残垣断壁，皆由洪荒混沌神岩所筑。',
+        vn: 'Những trụ đá chọc trời và vách thành hoang phế đều được đúc từ thần nham hỗn độn viễn cổ.'
+      },
+      {
+        cn: '数万载岁月更迭，古殿残柱间蔓延滋长出猩红可怖之古老血藤，吸纳神狼吐息之太阳余火逆天疯长。',
+        vn: 'Trải muôn vàn năm tháng, huyết đằng đỏ thẫm hung bạo hấp thụ lửa thái dương và sát khí từ hơi thở Thần Lang mà sinh sôi nghịch thiên giữa cõi hoang tàn.'
+      },
+      {
+        cn: '断壁残垣在赤金烈炎灼烧下流转着古神阵纹，静静见证着一代神狼吞噬天日后的孤绝与霸烈。',
+        vn: 'Tường đổ đá tàn dưới ngọn lửa xích kim luân chuyển thần trận thượng cổ, lặng lẽ chứng kiến sự cô tuyệt và bá liệt của Thần Lang sau khi nuốt trọn thái dương.'
+      }
+    ]
   },
   3: {
     badge: '日 · 核 · 神 · 杖',
     vnBadge: 'Thần Trượng Bạch Cốt Viễn Cổ · Khảm phong ấn Lõi Thái Dương Chân Thần',
     quote: '“ 白骨为杖锁天日，神威万丈掌乾坤；赤芒吞吐撼星汉，一杖横空覆九门。 ”',
     vnQuote: '“Bạch cốt đúc trượng khóa vầng thiên nhật, thần uy muôn trượng nắm trọn càn khôn. Khí tức xích kim rung chuyển tinh tú ngân hà, một trượng vung lên định đoạt sinh tử muôn loài.”',
-    body: '神狼右手所执之无上法器，乃是斩杀太古魔神后抽取极寒真龙脊骨淬炼而成的洪荒白骨神杖。法杖顶端死死咬合囚锢着的，正是当年神狼自九霄天穹生生嚼碎夺下的真正太阳核心炽核。那团日核宛若拥有自主意识的太古活物，日夜疯狂搏动咆哮，逸散出足以焚山煮海的纯粹极阳毁灭之力。但在神狼至尊意志与森森白骨神纹的绝对压制之下，狂暴日核只能乖乖臣服，化为其号令诸天万象、崩裂乾坤星海的本命神威。',
-    vnBody: 'Binh khí tối thượng mà Thần Lang nắm giữ nơi tay phải chính là cây thần trượng được gọt giũa từ cột sống chân long cực hàn thái cổ sau trận huyết chiến chém giết ma thần. Đỉnh trượng ngậm chặt một lõi thái dương chân chính – thứ do chính tay Thần Lang cắn xé nuốt xuống từ đỉnh trời cao nhất. Lõi mặt trời hừng hực như một quả tim sống điên cuồng đập nhịp, tỏa ra năng lượng diệt thế có thể thiêu cháy non sông cạn khô biển cả; song dưới uy áp tuyệt đối của Thần Lang, cuồng diễm thái dương hóa thành thần uy hiệu triệu cõi trời đất vạn tượng.'
+    bodyLines: [
+      {
+        cn: '神狼右手所执之无上法器，乃是斩杀太古魔神后抽取极寒真龙脊骨淬炼而成的洪荒白骨神杖。',
+        vn: 'Binh khí tối thượng nơi tay phải là thần trượng gọt giũa từ xương sống chân long cực hàn thái cổ sau khi trảm sát ma thần.'
+      },
+      {
+        cn: '法杖顶端死死咬合囚锢着的，正是当年神狼自九霄天穹生生嚼碎夺下的真正太阳核心炽核。',
+        vn: 'Đỉnh trượng ngậm chặt một lõi thái dương chân chính – thứ do Thần Lang cắn xé đoạt xuống từ đỉnh trời cao nhất.'
+      },
+      {
+        cn: '那团日核宛若拥有自主意识的太古活物，日夜疯狂搏动咆哮，逸散出焚山煮海的毁灭之力。',
+        vn: 'Lõi mặt trời như sinh linh thái cổ sống dậy, ngày đêm đập nhịp gầm thét, tỏa ra năng lượng diệt thế thiêu cháy non sông.'
+      },
+      {
+        cn: '但在神狼至尊意志与森森白骨神纹的绝对压制之下，狂暴日核只能乖乖臣服。',
+        vn: 'Song dưới uy áp chí tôn và cốt văn thần thánh của Thần Lang, nguồn nhiệt cuồng bạo buộc phải quy phục.'
+      },
+      {
+        cn: '无穷炽阳伟力尽数融汇为神狼号令诸天万象、崩裂乾坤星海的本命至尊神威。',
+        vn: 'Nguồn sức mạnh thái dương vô tận hóa thành thần uy bản mệnh giúp ngài hiệu triệu cõi trời đất và trấn áp tinh hà.'
+      }
+    ]
   }
 };
 
@@ -126,11 +189,9 @@ function initVerticalStepper() {
   const stepBtns = document.querySelectorAll('.step-item');
   const loreBadge = document.getElementById('lore-badge');
   const loreQuote = document.getElementById('lore-quote');
-  const loreBody = document.getElementById('lore-body');
+  const loreBodyContainer = document.getElementById('lore-body-container');
   const stepperSunImg = document.getElementById('stepper-sun-img');
 
-  // Góc xoay của Thái Dương Thần Luân tương ứng với 3 quyển:
-  // Quyển 1: 0°, Quyển 2: 45°, Quyển 3: 90°
   const STEP_ANGLES = {
     1: 0,
     2: 45,
@@ -143,7 +204,6 @@ function initVerticalStepper() {
     if (!stepperSunImg) return;
     const targetAngle = STEP_ANGLES[stepIndex] !== undefined ? STEP_ANGLES[stepIndex] : (stepIndex - 1) * 45;
 
-    // Nếu bấm lại chính bước đang chọn: khẽ lắc nhẹ 1 nhịp rồi hồi vị
     if (stepIndex === currentStep) {
       stepperSunImg.style.transform = `rotate(${targetAngle + 14}deg)`;
       setTimeout(() => {
@@ -152,71 +212,72 @@ function initVerticalStepper() {
       return;
     }
 
-    // Xoay mượt mà đến góc mới
     stepperSunImg.style.transform = `rotate(${targetAngle}deg)`;
     currentStep = stepIndex;
   }
 
   let activeTimeouts = [];
-  let activeIntervals = [];
 
-  function clearAllTyping() {
+  function clearAllTransitions() {
     activeTimeouts.forEach(t => clearTimeout(t));
-    activeIntervals.forEach(i => clearInterval(i));
     activeTimeouts = [];
-    activeIntervals = [];
-  }
-
-  // Hiệu ứng Typewriter: Chữ xuất hiện lần lượt từ trên xuống dưới (hỗ trợ trọn vẹn Unicode)
-  function typeVerticalColumn(element, fullText, vnData, startDelay = 0, charSpeed = 26) {
-    if (!element) return;
-
-    element.setAttribute('data-vn', vnData);
-    element.textContent = '';
-    element.style.opacity = '1';
-    element.style.transform = 'translateY(0)';
-
-    const chars = Array.from(fullText);
-    const timeout = setTimeout(() => {
-      let charIndex = 0;
-      const interval = setInterval(() => {
-        if (charIndex < chars.length) {
-          element.textContent += chars[charIndex];
-          charIndex++;
-        } else {
-          clearInterval(interval);
-        }
-      }, charSpeed);
-      activeIntervals.push(interval);
-    }, startDelay);
-    activeTimeouts.push(timeout);
   }
 
   function updateContent(stepIndex, isInitial = false) {
     const data = STEP_DATA[stepIndex];
     if (!data) return;
 
-    // Dọn sạch hoàn toàn mọi timeout & interval trước đó để tránh race-condition
-    clearAllTyping();
+    clearAllTransitions();
 
+    const loreContainer = document.getElementById('vertical-lore-container');
+    if (!loreContainer) return;
+
+    // Hiệu ứng chuyển động: các dòng rơi từ trên xuống
+    const allCols = loreContainer.querySelectorAll('.vertical-col');
     if (!isInitial) {
-      const els = [loreBadge, loreQuote, loreBody];
-      els.forEach(el => {
-        if (el) {
-          el.style.opacity = '0.3';
-          el.style.transition = 'opacity 0.12s ease';
-        }
+      allCols.forEach(col => {
+        col.classList.remove('dropped');
+        col.classList.add('lifting');
       });
     }
 
-    // Hiệu ứng gõ chữ (Typewriter) từ trên xuống dưới lần lượt từng cột
-    const baseDelay = isInitial ? 400 : 120;
-    const outerTimeout = setTimeout(() => {
-      typeVerticalColumn(loreBadge, data.badge, data.vnBadge, 0, 32);
-      typeVerticalColumn(loreQuote, data.quote, data.vnQuote, 140, 26);
-      typeVerticalColumn(loreBody, data.body, data.vnBody, 320, 18);
-    }, baseDelay);
-    activeTimeouts.push(outerTimeout);
+    const switchDelay = isInitial ? 350 : 160;
+    const timeout = setTimeout(() => {
+      // 1. Cập nhật Badge
+      if (loreBadge) {
+        loreBadge.textContent = data.badge;
+        loreBadge.setAttribute('data-vn', data.vnBadge);
+      }
+
+      // 2. Cập nhật Quote
+      if (loreQuote) {
+        loreQuote.textContent = data.quote;
+        loreQuote.setAttribute('data-vn', data.vnQuote);
+      }
+
+      // 3. Cập nhật các dòng nội dung Body (Mỗi dòng 1 câu riêng biệt, rơi xuống cùng lúc)
+      if (loreBodyContainer) {
+        loreBodyContainer.innerHTML = '';
+        data.bodyLines.forEach((line) => {
+          const lineCol = document.createElement('div');
+          lineCol.className = 'vertical-col vertical-body-line';
+          lineCol.textContent = line.cn;
+          lineCol.setAttribute('data-vn', line.vn);
+          loreBodyContainer.appendChild(lineCol);
+        });
+      }
+
+      // 4. Kích hoạt hiệu ứng rơi xuống đồng loạt cùng lúc (Synchronized drop)
+      requestAnimationFrame(() => {
+        const newCols = loreContainer.querySelectorAll('.vertical-col');
+        newCols.forEach(col => {
+          col.classList.remove('lifting');
+          col.classList.add('dropped');
+        });
+      });
+    }, switchDelay);
+
+    activeTimeouts.push(timeout);
   }
 
   stepBtns.forEach(btn => {
