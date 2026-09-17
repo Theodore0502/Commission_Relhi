@@ -747,7 +747,29 @@ html, body {
 
 /* Thứ tự từ sau ra trước: sky -> sun -> p3 -> p2 -> p1 -> o1 -> relhi -> f1 */
 .art-sky   { z-index: 1; }
-.art-sun   { z-index: 2; }
+.art-sun   { 
+  z-index: 2; 
+  transition: opacity 0.5s ease;
+}
+
+/* Light Mode: hiện sun thường, ẩn sun_dark */
+.art-sun-light {
+  opacity: 1;
+}
+.art-sun-dark {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dark Mode: hiện sun_dark, ẩn sun thường */
+[data-theme="dark"] .art-sun-light {
+  opacity: 0;
+  pointer-events: none;
+}
+[data-theme="dark"] .art-sun-dark {
+  opacity: 1;
+}
+
 .art-p3    { z-index: 3; }
 .art-p2    { z-index: 4; }
 .art-p1    { z-index: 5; }
