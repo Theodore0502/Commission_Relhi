@@ -1,0 +1,157 @@
+/* ==========================================================================
+   08. RESPONSIVE & LAYOUT EXTRAS (CORNER FILIGREE, INTRO ANIMATION, MOBILE)
+   ========================================================================== */
+
+/* 1. Medieval Filigree Border Frame & Corners (4 góc nẹp component) */
+.medieval-corner {
+  position: absolute;
+  width: clamp(26px, 3.4vh, 38px);
+  height: clamp(26px, 3.4vh, 38px);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.75;
+}
+
+.medieval-corner-tl { top: 4px; left: 4px; }
+.medieval-corner-tr { top: 4px; right: 4px; transform: scaleX(-1); }
+.medieval-corner-bl { bottom: 4px; left: 4px; transform: scaleY(-1); }
+.medieval-corner-br { bottom: 4px; right: 4px; transform: scale(-1, -1); }
+
+/* 2. Main Page Intro Cascade */
+.top-bar {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-scroll);
+}
+body.page-active .top-bar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.center-scroll-wing {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: none;
+  transition: opacity 0.3s ease;
+}
+body.page-active .center-scroll-wing {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: none;
+}
+
+.step-item {
+  opacity: 0;
+  transition: opacity 0.35s ease, color 0.3s ease;
+}
+body.page-active .step-item {
+  opacity: 1;
+}
+body.page-active .step-item:nth-child(1) { transition-delay: 0.05s; }
+body.page-active .step-item:nth-child(2) { transition-delay: 0.10s; }
+body.page-active .step-item:nth-child(3) { transition-delay: 0.15s; }
+
+.medieval-corner {
+  opacity: 0;
+  transition: opacity 0.75s ease 0.45s;
+}
+body.page-active .medieval-corner {
+  opacity: 0.75;
+}
+
+/* 3. Responsive Fallback cho Tablet & Mobile */
+@media (max-width: 900px) {
+  html, body {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .scroll-viewport {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+    padding: clamp(12px, 2vh, 20px) 16px;
+    gap: 24px;
+  }
+
+  .left-scroll-wing {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px 0;
+    justify-content: center;
+    background: none;
+  }
+
+  .solar-arc-stepper {
+    margin-top: 0;
+  }
+
+  .center-scroll-wing {
+    overflow: visible;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .character-art-frame {
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .parallax-stage {
+    margin-left: 0;
+    margin-top: 0;
+    max-height: none;
+    width: 100%;
+  }
+
+  .cathedral-window-arch {
+    width: 100%;
+    height: 100%;
+  }
+
+  .right-scroll-wing {
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+    padding: 20px 0;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .vertical-lore-container {
+    height: auto;
+    max-height: 440px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 10px 16px;
+  }
+
+  .scroll-viewport {
+    padding: 12px 10px;
+    gap: 18px;
+  }
+
+  .solar-arc-stepper {
+    width: 100%;
+    max-width: 240px;
+    height: 280px;
+  }
+
+  .vertical-lore-container {
+    max-height: 360px;
+    gap: 16px;
+  }
+
+  .vertical-body {
+    line-height: 1.85;
+  }
+}

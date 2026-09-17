@@ -1,0 +1,137 @@
+/* ==========================================================================
+   07. BILINGUAL TOOLTIP (BẢN DỊCH TIẾNG VIỆT HOVER & TOUCH)
+   ========================================================================== */
+
+[data-vn] {
+  cursor: help;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  position: relative;
+}
+
+[data-vn]:hover {
+  color: var(--cinnabar-red);
+}
+
+#vn-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 14px 18px 16px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--tooltip-border);
+  box-shadow: var(--tooltip-shadow);
+  font-family: var(--font-sans);
+  writing-mode: horizontal-tb; /* Luôn hiển thị dòng ngang */
+  text-orientation: mixed;
+  max-width: 380px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.22s var(--ease-scroll), transform 0.22s var(--ease-scroll), background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Nẹp góc hoàng kim cổ phong trên tooltip */
+#vn-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--tooltip-filigree);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+#vn-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Header của khung dịch nghĩa */
+.vn-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--tooltip-border);
+  position: relative;
+}
+
+/* Con dấu đỏ Chu Sa (Cinnabar Seal Stamp) */
+.vn-tooltip-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #cf382b 0%, #a81717 100%);
+  border: 1px solid #ff7b72;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(185, 28, 28, 0.4), inset 0 0 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.seal-char {
+  font-family: var(--font-hanzi);
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #fff9f0;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.vn-tooltip-title {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--tooltip-title);
+  text-transform: uppercase;
+}
+
+.vn-tooltip-sub {
+  margin-left: auto;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--tooltip-sub);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Nội dung bản dịch nghĩa */
+.vn-tooltip-body {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--tooltip-text);
+  letter-spacing: 0.025em;
+  text-shadow: var(--tooltip-text-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.tooltip-sentence {
+  margin: 0;
+  padding-left: 10px;
+  position: relative;
+  text-align: left;
+}
+
+/* Chấm son nhỏ đầu mỗi câu xuống dòng */
+.tooltip-sentence::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: var(--cinnabar-red);
+  box-shadow: 0 0 4px rgba(185, 28, 28, 0.6);
+}

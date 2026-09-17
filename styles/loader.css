@@ -1,0 +1,191 @@
+/* ==========================================================================
+   02. PRELOADER (CỔNG THẦN ĐIỆN & VÒNG QUAY MẶT TRỜI ĐÔI)
+   ========================================================================== */
+
+#loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto;
+  background: var(--loader-bg);
+
+  /* Chiều cao của Gate khớp chuẩn 100% chiều cao màn hình (viewport height) */
+  --gate-h: 100vh;
+  --gate-h: 100dvh;
+  --gate-w-half: calc(var(--gate-h) * 3562 / 2922);
+  /* Đường kính vòng tròn ngoài trên cổng (2200 / 2922 = 0.7529) */
+  --gate-outer-ring: calc(var(--gate-h) * 0.7529);
+  /* Đường kính vòng tròn lõi trong trên cổng (1176 / 2922 = 0.4025) */
+  --gate-inner-circle: calc(var(--gate-h) * 0.4025);
+}
+
+#loader-screen.hidden {
+  display: none !important;
+  pointer-events: none;
+}
+
+/* Hai cánh cửa thần điện tách đôi trái và phải - Chuẩn xác 50% mỗi bên tiếp giáp tại tâm */
+.loader-shutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
+  background: var(--shutter-bg);
+}
+
+.shutter-left {
+  left: 0;
+}
+
+.shutter-right {
+  right: 0;
+}
+
+/* Asset cánh cửa Gate (1781x2922 mỗi cánh): mép tiếp giáp chuẩn tại tâm 50% */
+.shutter-door-img {
+  position: absolute;
+  top: 50%;
+  height: var(--gate-h);
+  width: var(--gate-w-half);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Cánh trái: mép phải của Gate_left nằm ngay mép phải của shutter-left (tâm màn hình) */
+.shutter-door-left {
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Cánh phải: mép trái của Gate_right nằm ngay mép trái của shutter-right (tâm màn hình) */
+.shutter-door-right {
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Nẹp chỉ vàng son tiếp giáp chính giữa tâm 50% hoàn hảo */
+.shutter-left .shutter-seam-gold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, rgba(184, 134, 11, 0.4) 15%, rgba(184, 134, 11, 0.9) 50%, rgba(184, 134, 11, 0.4) 85%, transparent);
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.35);
+  z-index: 5;
+}
+
+.shutter-right .shutter-seam-gold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, rgba(184, 134, 11, 0.4) 15%, rgba(184, 134, 11, 0.9) 50%, rgba(184, 134, 11, 0.4) 85%, transparent);
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.35);
+  z-index: 5;
+}
+
+/* Cụm vòng xoay mặt trời & danh hiệu ở tâm */
+.loader-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s var(--ease-scroll), transform 0.4s var(--ease-scroll);
+  pointer-events: none;
+}
+
+/* Khi bắt đầu Outro: nội dung mờ dần và thu nhỏ nhẹ */
+#loader-screen.content-fading .loader-content {
+  opacity: 0;
+  transform: scale(0.92) translateY(-8px);
+}
+
+/* Khi 2 cánh cửa tách đôi mở ra 2 bên */
+#loader-screen.doors-opening {
+  background: transparent !important;
+  pointer-events: none;
+}
+
+#loader-screen.doors-opening .shutter-left {
+  transform: translate3d(-100%, 0, 0);
+}
+
+#loader-screen.doors-opening .shutter-right {
+  transform: translate3d(100%, 0, 0);
+}
+
+/* Khung vòng xoay mặt trời: Kích thước KHỚP CHÍNH XÁC với vòng tròn ngoại quyển của Gate */
+.sun-loader-asset {
+  position: relative;
+  width: var(--gate-outer-ring);
+  height: var(--gate-outer-ring);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Lớp 2 (loading2.webp): Khớp chuẩn 100% với vòng tròn ngoại quyển của Gate, xoay ngược chiều kim đồng hồ (xoay chậm 22s) */
+.loading-layer-2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  animation: spin-counter 22s linear infinite;
+  filter: var(--loader-shadow-2);
+  pointer-events: none;
+}
+
+/* Lớp 1 (loading1.webp): Khớp vừa khít 100% với lõi vòng tròn nội quyển của Gate, xoay ngược chiều kim đồng hồ (xoay chậm 16s) */
+.loading-layer-1 {
+  position: absolute;
+  top: 23.275%;
+  left: 23.275%;
+  width: 53.45%;
+  height: 53.45%;
+  object-fit: contain;
+  z-index: 2;
+  animation: spin-counter 16s linear infinite;
+  filter: var(--loader-shadow-1);
+  pointer-events: none;
+}
+
+/* Lớp 0 (loading1.webp): Nằm trước nhất, to hơn 25%, opacity 50%, xoay thuận chiều kim đồng hồ (xoay chậm 19s) */
+.loading-layer-0 {
+  position: absolute;
+  top: 16.595%;
+  left: 16.595%;
+  width: 66.81%;
+  height: 66.81%;
+  object-fit: contain;
+  z-index: 3;
+  opacity: 0.5;
+  animation: spin-clockwise 19s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.35));
+  pointer-events: none;
+}
+
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-counter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}

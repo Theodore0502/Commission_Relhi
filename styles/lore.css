@@ -1,0 +1,112 @@
+/* ==========================================================================
+   06. VERTICAL LORE & TYPEWRITER (RIGHT WING: VĂN TỰ THƠ & TIỂU SỬ DỌC)
+   ========================================================================== */
+
+.right-scroll-wing {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden; /* Khóa cố định hoàn toàn, không kéo hay cuộn ngang */
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  padding: clamp(12px, 1.8vh, 22px) clamp(12px, 1.4vw, 20px);
+}
+
+/* Vertical Text Columns Container - Khóa 100% trong khung, hiển thị trọn vẹn tại một ánh nhìn */
+.vertical-lore-container {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse; /* Đọc từ phải sang trái theo thư pháp cổ */
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: clamp(10px, 1.3vw, 22px);
+  padding: clamp(4px, 0.8vh, 10px) 0;
+  overflow: hidden; /* Không hiện thanh cuộn ngang, không cần kéo lê */
+  user-select: none;
+}
+
+/* Container chứa các dòng văn tự body */
+.vertical-lore-body-container {
+  display: flex;
+  flex-direction: row-reverse; /* Đọc từ phải sang trái theo thư pháp cổ */
+  gap: clamp(8px, 1vw, 16px);
+  height: 100%;
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+/* Individual Vertical Text Column */
+.vertical-col {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.16em;
+  line-height: 2.15;
+  overflow: visible;
+  height: 100%;
+  max-height: 100%;
+  opacity: 1;
+  transform: none;
+  position: relative;
+  flex-shrink: 0;
+  contain: layout style;
+}
+
+/* Ký tự gõ chữ mượt mà từ trên xuống dưới */
+.vertical-col .char-item {
+  display: inline;
+  opacity: 1;
+}
+
+/* Con trỏ mực chu sa nhấp nháy ở đầu chữ đang gõ */
+.vertical-col .ink-cursor {
+  display: inline;
+  color: var(--cinnabar-red);
+  font-weight: bold;
+  opacity: 0.85;
+  animation: cursorBlink 0.5s infinite alternate ease-in-out;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes cursorBlink {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
+}
+
+.vertical-badge {
+  font-family: var(--font-hanzi);
+  font-size: clamp(0.84rem, 1.4vh, 0.98rem);
+  font-weight: 700;
+  color: var(--text-main);
+  border-right: 2px solid var(--cinnabar-red);
+  padding-right: 6px;
+  flex-shrink: 0;
+}
+
+.vertical-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.82rem, 1.35vh, 0.96rem);
+  color: var(--cinnabar-red);
+  flex-shrink: 0;
+  max-width: 80px;
+}
+
+/* Các câu văn tự dọc */
+.vertical-body-line {
+  font-size: clamp(0.72rem, 1.15vh, 0.82rem);
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: help;
+  transition: color 0.2s ease;
+}
+
+.vertical-body-line:hover {
+  color: var(--text-main);
+}

@@ -111,19 +111,19 @@ const STEP_DATA = {
       },
       {
         cn: '其身躯如玄铁山岳，骨骼镌刻着上古吞噬神纹，体内深处凝铸着至纯至狂之太阳炽核。',
-        vn: 'Thân hình hắn tựa núi non huyền thiết sừng sững, khung xương khắc sâu thần văn thôn phệ viễn cổ, sâu thẳm trong cơ thể ngưng tụ lõi thái dương chí thuần cuồng bạo.'
+        vn: 'Thân hình hắn tựa núi non huyền thiết sừng sững, khung xương khắc sâu thần văn thôn phệ, sâu thẳm trong cơ thể ngưng tụ lõi thái dương chí thuần.'
       },
       {
-        cn: '相传洪荒初开，天穹十日肆虐，万物生灵焦土千里。',
-        vn: 'Thuở hồng hoang mới khai mở, mười vầng mặt trời thiêu đốt dữ dội trên vòm trời, vạn vật sinh linh chìm trong biển lửa cháy rụi ngàn dặm.'
+        cn: '相传洪荒初开，天穹十日肆虐，神狼踏碎太虚长空，张口生吞九天炽烈神轮。',
+        vn: 'Thuở hồng hoang mới khai mở, mười mặt trời thiêu đốt vòm trời, Thần Lang đạp rách hư không, há miệng nuốt trọn chín vầng thái dương rực lửa.'
       },
       {
-        cn: '神狼踏碎太虚长空，张口生吞九天炽烈神轮，硬生生将焚尽众生的暴虐太阳锁入狼骨血脉与神魂深处。',
-        vn: 'Thần Lang đạp rách hư không, há miệng nuốt trọn chín vầng thái dương rực lửa, khóa vĩnh viễn năng lượng cuồng bạo thiêu rụi chúng sinh vào huyết mạch và thần hồn.'
+        cn: '硬生生将暴虐太阳锁入狼骨血脉，脏腑间化为苍茫狂焰，双眸凝视之处，八荒失色。',
+        vn: 'Khóa vĩnh viễn năng lượng cuồng bạo vào huyết mạch, nơi ánh mắt ngài nhìn qua, nhật nguyệt lu mờ, cõi trần tịch mịch.'
       },
       {
-        cn: '无尽烈阳在其脏腑间化为苍茫狂焰，双眸凝视之处，炽日黯然，八荒失色；长啸骤起之时，群星战栗，唯留亘古长夜与滔天炎威。',
-        vn: 'Nơi ánh mắt hắn nhìn qua, nhật nguyệt lu mờ, cõi trần tịch mịch; khi tiếng gầm vang lên, ngàn sao run rẩy, chỉ còn lại cõi đêm vĩnh hằng và uy áp cuồng diễm vô biên.'
+        cn: '长啸骤起之时，群星战栗，唯留亘古长夜与滔天炎威。',
+        vn: 'Khi tiếng gầm vang lên, ngàn sao run rẩy, chỉ còn lại cõi đêm vĩnh hằng và uy áp cuồng diễm vô biên.'
       }
     ]
   },
@@ -142,16 +142,16 @@ const STEP_DATA = {
         vn: 'Thần Lang bước ra từ cõi chôn vùi thần ma, ngự trên phế tích cổ điện ngàn năm hiu quạnh.'
       },
       {
-        cn: '那古殿之高耸石柱与残垣断壁，皆由洪荒混沌神岩所筑。',
+        cn: '那古殿高耸石柱与残垣断壁，皆由洪荒混沌神岩所筑。',
         vn: 'Những trụ đá chọc trời và vách thành hoang phế đều được đúc từ thần nham hỗn độn viễn cổ.'
       },
       {
-        cn: '数万载岁月更迭，古殿残柱间蔓延滋长出猩红可怖之古老血藤，吸纳神狼吐息之太阳余火逆天疯长。',
-        vn: 'Trải muôn vàn năm tháng, huyết đằng đỏ thẫm hung bạo hấp thụ lửa thái dương và sát khí từ hơi thở Thần Lang mà sinh sôi nghịch thiên giữa cõi hoang tàn.'
+        cn: '数万载岁月更迭，古殿残柱间蔓延滋长出猩红血藤，吸纳太阳余火逆天疯长。',
+        vn: 'Trải muôn vàn năm tháng, huyết đằng đỏ thẫm sinh sôi nghịch thiên giữa cõi hoang tàn, hấp thụ lửa thái dương và hơi thở Thần Lang.'
       },
       {
-        cn: '断壁残垣在赤金烈炎灼烧下流转着古神阵纹，静静见证着一代神狼吞噬天日后的孤绝与霸烈。',
-        vn: 'Tường đổ đá tàn dưới ngọn lửa xích kim luân chuyển thần trận thượng cổ, lặng lẽ chứng kiến sự cô tuyệt và bá liệt của Thần Lang sau khi nuốt trọn thái dương.'
+        cn: '断壁残垣在赤金烈炎灼烧下流转着古神阵纹，静静见证着一代神狼吞日后的霸烈。',
+        vn: 'Tường đổ đá tàn dưới ngọn lửa xích kim luân chuyển thần trận thượng cổ, lặng lẽ chứng kiến sự cô tuyệt và bá liệt của Thần Lang.'
       }
     ]
   },
@@ -162,23 +162,23 @@ const STEP_DATA = {
     vnQuote: '“Bạch cốt đúc trượng khóa vầng thiên nhật, thần uy muôn trượng nắm trọn càn khôn. Khí tức xích kim rung chuyển tinh tú ngân hà, một trượng vung lên định đoạt sinh tử muôn loài.”',
     bodyLines: [
       {
-        cn: '神狼右手所执之无上法器，乃是斩杀太古魔神后抽取极寒真龙脊骨淬炼而成的洪荒白骨神杖。',
+        cn: '神狼右手所执之无上法器，乃斩杀太古魔神后抽取极寒真龙脊骨淬炼而成之白骨神杖。',
         vn: 'Binh khí tối thượng nơi tay phải là thần trượng gọt giũa từ xương sống chân long cực hàn thái cổ sau khi trảm sát ma thần.'
       },
       {
-        cn: '法杖顶端死死咬合囚锢着的，正是当年神狼自九霄天穹生生嚼碎夺下的真正太阳核心炽核。',
+        cn: '法杖顶端死死咬合囚锢着的，正是当年自九霄天穹生生嚼碎夺下之真正太阳核心。',
         vn: 'Đỉnh trượng ngậm chặt một lõi thái dương chân chính – thứ do Thần Lang cắn xé đoạt xuống từ đỉnh trời cao nhất.'
       },
       {
-        cn: '那团日核宛若拥有自主意识的太古活物，日夜疯狂搏动咆哮，逸散出焚山煮海的毁灭之力。',
+        cn: '那团日核宛若拥有自主意识的太古活物，日夜疯狂搏动咆哮，逸散出毁灭之力。',
         vn: 'Lõi mặt trời như sinh linh thái cổ sống dậy, ngày đêm đập nhịp gầm thét, tỏa ra năng lượng diệt thế thiêu cháy non sông.'
       },
       {
-        cn: '但在神狼至尊意志与森森白骨神纹的绝对压制之下，狂暴日核只能乖乖臣服。',
+        cn: '但在神狼至尊意志与白骨神纹绝对压制之下，狂暴日核只能乖乖臣服。',
         vn: 'Song dưới uy áp chí tôn và cốt văn thần thánh của Thần Lang, nguồn nhiệt cuồng bạo buộc phải quy phục.'
       },
       {
-        cn: '无穷炽阳伟力尽数融汇为神狼号令诸天万象、崩裂乾坤星海的本命至尊神威。',
+        cn: '无穷炽阳伟力尽数融汇为神狼号令诸天万象、崩裂乾坤星海之本命至尊神威。',
         vn: 'Nguồn sức mạnh thái dương vô tận hóa thành thần uy bản mệnh giúp ngài hiệu triệu cõi trời đất và trấn áp tinh hà.'
       }
     ]
@@ -190,7 +190,7 @@ function initVerticalStepper() {
   const loreBadge = document.getElementById('lore-badge');
   const loreQuote = document.getElementById('lore-quote');
   const loreBodyContainer = document.getElementById('lore-body-container');
-  const stepperSunImg = document.getElementById('stepper-sun-img');
+  const stepperSunImgs = document.querySelectorAll('.solar-sun-img');
 
   const STEP_ANGLES = {
     1: 0,
@@ -201,26 +201,72 @@ function initVerticalStepper() {
   let currentStep = 1;
 
   function rotateSun(stepIndex) {
-    if (!stepperSunImg) return;
+    if (!stepperSunImgs.length) return;
     const targetAngle = STEP_ANGLES[stepIndex] !== undefined ? STEP_ANGLES[stepIndex] : (stepIndex - 1) * 45;
 
     if (stepIndex === currentStep) {
-      stepperSunImg.style.transform = `rotate(${targetAngle + 14}deg)`;
+      stepperSunImgs.forEach(img => {
+        img.style.transform = `rotate(${targetAngle + 14}deg)`;
+      });
       setTimeout(() => {
-        stepperSunImg.style.transform = `rotate(${targetAngle}deg)`;
+        stepperSunImgs.forEach(img => {
+          img.style.transform = `rotate(${targetAngle}deg)`;
+        });
       }, 240);
       return;
     }
 
-    stepperSunImg.style.transform = `rotate(${targetAngle}deg)`;
+    stepperSunImgs.forEach(img => {
+      img.style.transform = `rotate(${targetAngle}deg)`;
+    });
     currentStep = stepIndex;
   }
 
   let activeTimeouts = [];
+  let currentAnimationToken = 0;
 
   function clearAllTransitions() {
     activeTimeouts.forEach(t => clearTimeout(t));
     activeTimeouts = [];
+    currentAnimationToken++;
+  }
+
+  // Typewriter từ trên xuống dưới cho cột văn tự dọc (mượt mà, không giật layout)
+  function typeWriterCol(element, text, speed, startDelay, token, onComplete) {
+    element.innerHTML = '';
+    const chars = Array.from(text);
+    let index = 0;
+
+    // Con trỏ mực bút lông chu sa
+    const cursor = document.createElement('span');
+    cursor.className = 'ink-cursor';
+    cursor.textContent = '·';
+    cursor.style.visibility = 'hidden';
+    element.appendChild(cursor);
+
+    const tDelay = setTimeout(() => {
+      if (token !== currentAnimationToken) return;
+      cursor.style.visibility = 'visible';
+
+      function stepChar() {
+        if (token !== currentAnimationToken) return;
+        if (index < chars.length) {
+          const charNode = document.createTextNode(chars[index]);
+          element.insertBefore(charNode, cursor);
+          index++;
+          const nextTimeout = setTimeout(stepChar, speed);
+          activeTimeouts.push(nextTimeout);
+        } else {
+          // Gõ xong thì ẩn con trỏ nhẹ nhàng mà không xóa phần tử để tránh giật chiều dài dòng
+          cursor.style.visibility = 'hidden';
+          if (onComplete) onComplete();
+        }
+      }
+
+      stepChar();
+    }, startDelay);
+
+    activeTimeouts.push(tDelay);
   }
 
   function updateContent(stepIndex, isInitial = false) {
@@ -228,53 +274,41 @@ function initVerticalStepper() {
     if (!data) return;
 
     clearAllTransitions();
+    const token = currentAnimationToken;
 
     const loreContainer = document.getElementById('vertical-lore-container');
     if (!loreContainer) return;
 
-    // Hiệu ứng chuyển động: các dòng rơi từ trên xuống
-    const allCols = loreContainer.querySelectorAll('.vertical-col');
-    if (!isInitial) {
-      allCols.forEach(col => {
-        col.classList.remove('dropped');
-        col.classList.add('lifting');
-      });
-    }
-
-    const switchDelay = isInitial ? 350 : 160;
+    const switchDelay = isInitial ? 280 : 80;
     const timeout = setTimeout(() => {
-      // 1. Cập nhật Badge
+      if (token !== currentAnimationToken) return;
+
+      // 1. Cập nhật Badge & bắt đầu type
       if (loreBadge) {
-        loreBadge.textContent = data.badge;
         loreBadge.setAttribute('data-vn', data.vnBadge);
+        typeWriterCol(loreBadge, data.badge, 45, 0, token);
       }
 
       // 2. Cập nhật Quote
       if (loreQuote) {
-        loreQuote.textContent = data.quote;
         loreQuote.setAttribute('data-vn', data.vnQuote);
+        typeWriterCol(loreQuote, data.quote, 28, 120, token);
       }
 
-      // 3. Cập nhật các dòng nội dung Body (Mỗi dòng 1 câu riêng biệt, rơi xuống cùng lúc)
+      // 3. Chuẩn bị các cột nội dung Body và type nối tiếp sinh động
       if (loreBodyContainer) {
         loreBodyContainer.innerHTML = '';
-        data.bodyLines.forEach((line) => {
+        data.bodyLines.forEach((line, lineIdx) => {
           const lineCol = document.createElement('div');
           lineCol.className = 'vertical-col vertical-body-line';
-          lineCol.textContent = line.cn;
           lineCol.setAttribute('data-vn', line.vn);
           loreBodyContainer.appendChild(lineCol);
+
+          // Từng câu bắt đầu gõ lệch nhau một chút (staggered cascade typing)
+          const lineStartDelay = 220 + lineIdx * 110;
+          typeWriterCol(lineCol, line.cn, 20, lineStartDelay, token);
         });
       }
-
-      // 4. Kích hoạt hiệu ứng rơi xuống đồng loạt cùng lúc (Synchronized drop)
-      requestAnimationFrame(() => {
-        const newCols = loreContainer.querySelectorAll('.vertical-col');
-        newCols.forEach(col => {
-          col.classList.remove('lifting');
-          col.classList.add('dropped');
-        });
-      });
     }, switchDelay);
 
     activeTimeouts.push(timeout);
@@ -326,8 +360,6 @@ function initBilingualTooltip() {
 
   function formatTooltipText(rawText) {
     if (!rawText) return '';
-    // Tách câu theo dấu chấm, chấm phẩy, hoặc dấu kết câu kết hợp ngoặc kép
-    // Giữ nguyên tiêu đề ngắn hoặc tách từng câu thành các dòng riêng biệt
     const sentences = rawText
       .replace(/([.!?；;])\s*(?=[A-ZÀ-Ỹ“"0-9]|$)/g, '$1|__SPLIT__|')
       .split('|__SPLIT__|')
@@ -347,7 +379,6 @@ function initBilingualTooltip() {
     const vnText = target.getAttribute('data-vn');
     if (!vnText) return;
 
-    // Thiết kế cấu trúc thẻ ngọc truyền thư cổ phong
     tooltip.innerHTML = `
       <div class="vn-tooltip-header">
         <span class="vn-tooltip-seal">
@@ -392,7 +423,6 @@ function initBilingualTooltip() {
     }
   });
 
-  // Hỗ trợ thiết bị di động / cảm ứng khi chạm (tap)
   document.addEventListener('touchstart', (e) => {
     const target = e.target.closest('[data-vn]');
     if (target && e.touches.length > 0) {
@@ -411,12 +441,9 @@ function initBilingualTooltip() {
     let left = clientX + offset;
     let top = clientY + offset;
 
-    // Tránh tràn viền phải
     if (left + w > window.innerWidth - 16) {
       left = clientX - w - offset;
     }
-
-    // Tránh tràn viền dưới
     if (top + h > window.innerHeight - 16) {
       top = clientY - h - offset;
     }

@@ -1,0 +1,289 @@
+/* ==========================================================================
+   04. STEPPER (LEFT WING: THÁI DƯƠNG THẦN LUÂN & 3 BƯỚC QUYỂN)
+   ========================================================================== */
+
+.left-scroll-wing {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden; /* Che sạch 100% nửa trái mặt trời vượt mép viền */
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  padding: clamp(14px, 2.2vh, 26px) 0;
+  background: var(--stepper-gradient);
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+/* Tiêu đề & Chân trang cổ phong trang nhã cho khối Stepper bên trái */
+.left-wing-header,
+.left-wing-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+  position: relative;
+}
+
+.wing-header-title {
+  font-family: var(--font-hanzi);
+  font-size: clamp(0.82rem, 1.3vh, 0.95rem);
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  transition: color 0.35s ease;
+}
+
+.wing-header-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.58rem, 0.9vh, 0.66rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.wing-header-divider {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+.wing-footer-seal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(0.64rem, 1vh, 0.74rem);
+  color: var(--text-muted);
+  font-family: var(--font-hanzi);
+  letter-spacing: 0.15em;
+  transition: color 0.35s ease;
+}
+
+.wing-footer-seal .seal-icon {
+  color: var(--cinnabar-red);
+  font-size: 0.6rem;
+  opacity: 0.85;
+}
+
+.wing-footer-sub {
+  font-family: var(--font-display);
+  font-size: clamp(0.56rem, 0.85vh, 0.64rem);
+  letter-spacing: 0.16em;
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+/* 4-Step Solar Arc Nav - Vừa vặn hoàn hảo, căn chính rìa trái */
+.solar-arc-stepper {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 48vh, 370px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin: auto 0;
+  user-select: none;
+}
+
+/* Thái Dương Thần Luân đặt chính xác trên ranh giới mép trái, viền che đúng 50% */
+.solar-sun-wrapper {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(180px, 26vh, 240px);
+  height: clamp(180px, 26vh, 240px);
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hào quang nhật hoa huyền bí phía sau mặt trời */
+.solar-sun-aura {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(185, 28, 28, 0.22) 0%, rgba(184, 134, 11, 0.12) 48%, transparent 72%);
+  pointer-events: none;
+  filter: blur(8px);
+  animation: solarAuraPulse 4s infinite alternate ease-in-out;
+}
+
+[data-theme="dark"] .solar-sun-aura {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(229, 62, 62, 0.16) 45%, transparent 72%);
+}
+
+@keyframes solarAuraPulse {
+  0% { transform: scale(0.92); opacity: 0.65; }
+  100% { transform: scale(1.08); opacity: 0.95; }
+}
+
+.solar-sun-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: var(--sun-shadow);
+  transition: transform 0.7s cubic-bezier(0.34, 1.35, 0.64, 1), opacity 0.4s ease, filter 0.35s ease;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Light Mode: hiện loading1.webp, ẩn loading3.webp */
+:root:not([data-theme="dark"]) .solar-sun-light {
+  opacity: 1;
+  pointer-events: auto;
+}
+:root:not([data-theme="dark"]) .solar-sun-dark {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dark Mode: hiện loading3.webp (Mặt trời trắng bạch quang), ẩn loading1.webp */
+[data-theme="dark"] .solar-sun-light {
+  opacity: 0;
+  pointer-events: none;
+}
+[data-theme="dark"] .solar-sun-dark {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* SVG Cung quỹ đạo ôm trọn vầng thái dương */
+.solar-arc-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Container chứa các nút tinh tú */
+.solar-nodes-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.step-item.solar-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  text-align: left;
+  white-space: nowrap;
+  transition: transform 0.25s ease;
+}
+
+/* Tọa độ 3 nút uốn lượn đối xứng theo cung tròn thái dương */
+.node-pos-1 {
+  top: 28.3%;
+  left: 78px;
+  transform: translate(-14px, -50%);
+}
+
+.node-pos-2 {
+  top: 50%;
+  left: 110px;
+  transform: translate(-14px, -50%);
+}
+
+.node-pos-3 {
+  top: 71.7%;
+  left: 78px;
+  transform: translate(-14px, -50%);
+}
+
+.step-item.solar-node:hover {
+  transform: translate(-14px, -50%) scale(1.05);
+}
+
+.step-item.solar-node.active {
+  transform: translate(-14px, -50%) scale(1.03);
+}
+
+/* Vòng tròn số tinh tú (chữ số trên cung quỹ đạo) */
+.step-indicator {
+  width: clamp(25px, 3.1vh, 28px);
+  height: clamp(25px, 3.1vh, 28px);
+  border-radius: 50%;
+  background: var(--node-bg);
+  border: 1.5px solid var(--node-border);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 3.5px var(--node-ring);
+  display: grid;
+  place-items: center;
+  font-size: clamp(0.66rem, 1.1vh, 0.74rem);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--text-main);
+  transition: all 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.step-item.solar-node:hover .step-indicator {
+  border-color: var(--cinnabar-red);
+  color: var(--cinnabar-red);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4px rgba(185, 28, 28, 0.35);
+}
+
+.step-item.solar-node.active .step-indicator {
+  background: var(--cinnabar-red);
+  border-color: var(--cinnabar-red);
+  color: #ffffff;
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4.5px rgba(185, 28, 28, 0.45), 0 2px 10px rgba(185, 28, 28, 0.35);
+  transform: scale(1.12);
+}
+
+.step-label-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-hanzi {
+  font-family: var(--font-hanzi);
+  font-size: clamp(0.76rem, 1.3vh, 0.88rem);
+  color: var(--text-light);
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease;
+}
+
+.step-name {
+  font-size: clamp(0.72rem, 1.2vh, 0.82rem);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.step-item.solar-node:hover .step-hanzi,
+.step-item.solar-node:hover .step-name {
+  color: var(--text-main);
+}
+
+.step-item.solar-node.active .step-hanzi,
+.step-item.solar-node.active .step-name {
+  color: var(--cinnabar-red);
+  font-weight: 700;
+}

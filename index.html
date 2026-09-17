@@ -20,8 +20,16 @@
   <link rel="preload" as="image" href="assets/loading1.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/loading2.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
 
-  <!-- Vertical Scroll Stylesheet -->
-  <link rel="stylesheet" href="styles/style.css?v=20260917_sentence_drop" />
+  <!-- Modular Stylesheets (Fast parallel load, no @import waterfall) -->
+  <link rel="stylesheet" href="styles/variables.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/layout.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/loader.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/header.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/stepper.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/character.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/lore.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/tooltip.css?v=20260917_mod" />
+  <link rel="stylesheet" href="styles/responsive.css?v=20260917_mod" />
 </head>
 <body>
 
@@ -52,15 +60,14 @@
     </div>
   </div>
 
-  <!-- Top Minimal Nav (Song ngữ qua data-vn) -->
   <header class="top-bar">
-    <div class="top-left-code" data-vn="Họa sĩ Thao Quang · 2026">
+    <div class="top-left-code">
       thaoquang2452 - 2026
     </div>
 
     <!-- Nút chuyển đổi Giao diện Sáng / Tối (Light/Dark Mode Toggle) -->
     <div class="top-bar-actions">
-      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Chuyển đổi giao diện Sáng / Tối" data-vn="Chuyển đổi chế độ Sáng / Tối (Light / Dark Mode)">
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Chuyển đổi giao diện Sáng / Tối">
         <span class="theme-toggle-icon theme-icon-sun" aria-hidden="true">
           <!-- Biểu tượng Thái Dương (Sun Icon) -->
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -84,54 +91,71 @@
        ======================================================================== -->
   <main class="scroll-viewport">
 
-    <!-- Họa tiết góc cửa sổ Gothic Trung Cổ (Medieval Window Tracery Corners) -->
-    <svg class="medieval-corner medieval-corner-tl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
-      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
-    </svg>
-    <svg class="medieval-corner medieval-corner-tr" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
-      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
-    </svg>
-    <svg class="medieval-corner medieval-corner-bl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
-      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
-    </svg>
-    <svg class="medieval-corner medieval-corner-br" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
-      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
-    </svg>
-
     <!-- LỀ TRÁI: STEPPER 3 BƯỚC DỌC & CỘT VĂN TỰ TIỂU SỬ DỌC (TIẾNG TRUNG + TOOLTIP VIỆT) -->
     <section class="left-scroll-wing">
+      <!-- 4 Họa tiết góc cổ phong vuông vức cho khối Stepper bên trái -->
+      <svg class="medieval-corner medieval-corner-tl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <svg class="medieval-corner medieval-corner-tr" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <svg class="medieval-corner medieval-corner-bl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <svg class="medieval-corner medieval-corner-br" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <!-- Tiêu đề cổ phong thanh nhã phía trên -->
+      <div class="left-wing-header">
+        <span class="wing-header-title" data-vn="Mục Lục Quyển">卷 录</span>
+        <div class="wing-header-divider"></div>
+      </div>
+
       <!-- 3-Step Solar Arc Nav (Thái Dương Thần Luân Chu Kích) -->
       <nav class="vertical-stepper solar-arc-stepper" aria-label="Vertical Solar Step Navigation">
-        <!-- Thái Dương Thần Luân ở tâm cung tròn, xoay nhẹ mỗi khi chọn mục mới -->
+        <!-- Thái Dương Thần Luân đặt tại rìa trái, che 1 nửa bởi viền component (Light Mode: loading1.webp, Dark Mode: loading3.webp) -->
         <div class="solar-sun-wrapper" aria-hidden="true">
-          <img src="assets/loading1.webp" alt="Thái Dương Thần Luân" class="solar-sun-img" id="stepper-sun-img" decoding="async">
+          <div class="solar-sun-aura"></div>
+          <img src="assets/loading1.webp" alt="Thái Dương Thần Luân (Light)" class="solar-sun-img solar-sun-light" id="stepper-sun-light" decoding="async">
+          <img src="assets/loading3.webp" alt="Thái Dương Thần Luân (Dark Bạch Quang)" class="solar-sun-img solar-sun-dark" id="stepper-sun-dark" decoding="async">
         </div>
 
-        <!-- Cung quỹ đạo kép (Double Orbital Arc Track) ôm trọn nửa vầng Thái Dương lớn sát mép trái -->
-        <svg class="solar-arc-svg" viewBox="0 0 140 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cung quỹ đạo kép xuất phát từ rìa trái ôm nửa vầng Thái Dương và các nút tinh tú -->
+        <svg class="solar-arc-svg" viewBox="0 0 220 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Trục dọc thiên văn huyền bí dọc theo mép trái -->
+          <line x1="0" y1="20" x2="0" y2="340" stroke="var(--svg-gold)" stroke-width="1.2" stroke-dasharray="2 4" opacity="0.4" />
+          <circle cx="0" cy="20" r="3" fill="var(--svg-cinnabar)" opacity="0.85" />
+          <circle cx="0" cy="340" r="3" fill="var(--svg-cinnabar)" opacity="0.85" />
+
           <!-- Vòng quỹ đạo ngoài nét mực mờ -->
-          <path class="arc-track-outer" d="M 68 70 A 112 112 0 0 1 68 250" stroke="var(--svg-ink)" stroke-width="1.4" stroke-opacity="0.25" stroke-linecap="round" />
-          <!-- Vòng quỹ đạo trong ánh vàng kim cổ -->
-          <path class="arc-track-inner" d="M 62 76 A 104 104 0 0 1 62 244" stroke="var(--svg-gold)" stroke-width="0.8" stroke-opacity="0.5" stroke-dasharray="3 3" stroke-linecap="round" />
+          <path class="arc-track-outer" d="M 0 70 A 110 110 0 0 1 110 180 A 110 110 0 0 1 0 290" stroke="var(--svg-ink)" stroke-width="1.2" stroke-opacity="0.25" stroke-linecap="round" />
+          <!-- Vòng quỹ đạo trong ánh vàng kim cổ đứt đoạn -->
+          <path class="arc-track-inner" d="M 0 76 A 104 104 0 0 1 104 180 A 104 104 0 0 1 0 284" stroke="var(--svg-gold)" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="3 3" stroke-linecap="round" />
+
+          <!-- Điểm dấu tinh tú nhỏ trên đường quỹ đạo -->
+          <circle cx="78" cy="102" r="2.5" stroke="var(--svg-gold)" stroke-width="1" fill="none" opacity="0.45" />
+          <circle cx="110" cy="180" r="2.5" stroke="var(--svg-gold)" stroke-width="1" fill="none" opacity="0.45" />
+          <circle cx="78" cy="258" r="2.5" stroke="var(--svg-gold)" stroke-width="1" fill="none" opacity="0.45" />
         </svg>
 
         <!-- 3 Nút Tinh Tú đính trên cung tròn -->
         <div class="solar-nodes-container" role="tablist" aria-label="Danh sách Quyển">
           <button class="step-item solar-node node-pos-1 active" data-step="1" title="卷一 · 吞日" role="tab" aria-selected="true">
             <span class="step-indicator">01</span>
-            <div class="step-label-wrap" data-vn="Bước 01: Quyển 1 · Lễ Hy Thôn Nhật Thần Lang">
+            <div class="step-label-wrap" data-vn="Quyển 1 · Lễ Hy Thôn Nhật Thần Lang">
               <span class="step-hanzi">卷一</span>
               <span class="step-name">吞日</span>
             </div>
@@ -139,7 +163,7 @@
 
           <button class="step-item solar-node node-pos-2" data-step="2" title="卷二 · 荒殿" role="tab" aria-selected="false">
             <span class="step-indicator">02</span>
-            <div class="step-label-wrap" data-vn="Bước 02: Quyển 2 · Hoang Điện Phế Tích & Huyết Đằng">
+            <div class="step-label-wrap" data-vn="Quyển 2 · Hoang Điện Phế Tích & Huyết Đằng">
               <span class="step-hanzi">卷二</span>
               <span class="step-name">荒殿</span>
             </div>
@@ -147,13 +171,23 @@
 
           <button class="step-item solar-node node-pos-3" data-step="3" title="卷三 · 日核" role="tab" aria-selected="false">
             <span class="step-indicator">03</span>
-            <div class="step-label-wrap" data-vn="Bước 03: Quyển 3 · Thần trượng giam giữ lõi thái dương">
+            <div class="step-label-wrap" data-vn="Quyển 3 · Thần trượng giam giữ lõi thái dương">
               <span class="step-hanzi">卷三</span>
               <span class="step-name">日核</span>
             </div>
           </button>
         </div>
       </nav>
+
+      <!-- Dấu ấn cổ phong thanh nhã phía dưới -->
+      <div class="left-wing-footer">
+        <div class="wing-footer-seal" data-vn="Lễ Hy · Tuế Luật">
+          <span class="seal-icon">✦</span>
+          <span class="seal-text">礼希 · 岁律</span>
+          <span class="seal-icon">✦</span>
+        </div>
+        <div class="wing-footer-sub">ACT I — III</div>
+      </div>
     </section>
 
     <!-- TRUNG TÂM: NHÂN VẬT ĐỨNG TRƯỚC KHUNG VÒM CỬA SỔ TRUNG CỔ -->
@@ -199,38 +233,42 @@
 
     <!-- LỀ PHẢI: KHỐI NỘI DUNG VĂN TỰ THƠ & TIỂU SỬ DỌC (TYPEWRITER TỪ TRÊN XUỐNG) -->
     <section class="right-scroll-wing">
+      <!-- 4 Họa tiết góc cổ phong vuông vức cho khối Văn tự bên phải -->
+      <svg class="medieval-corner medieval-corner-tl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <svg class="medieval-corner medieval-corner-tr" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <svg class="medieval-corner medieval-corner-bl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
+      <svg class="medieval-corner medieval-corner-br" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+        <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+        <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+        <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
+      </svg>
       <!-- Các cột văn tự chạy dọc từ trên xuống dưới (vertical-rl) -->
       <div class="vertical-lore-container" id="vertical-lore-container">
-        <div class="vertical-col vertical-badge" id="lore-badge" data-vn="Lễ Hy (Lǐ Xī) · Thôn Nhật Thần Lang (Hồ sơ Thần Tướng Thái Cổ)">
-          礼 · 晞 · 吞 · 日
-        </div>
-        <div class="vertical-col vertical-quote" id="lore-quote" data-vn="“Thái dương nuốt trọn hóa thành tiếng gầm xé toạc đêm đen, chín tầng trời chìm vào tĩnh mịch hóa cõi hoang sơ. Một mình dẫm đạp hư vô nuốt vầng thiên nhật, cõi vạn cổ càn khôn gom trọn trong một ý niệm.”">
-          “ 烈阳入口化长啸，九天沉寂尽成荒；独踏玄虚吞烈曜，万古乾坤一念藏。 ”
-        </div>
-        <div class="vertical-lore-body-container" id="lore-body-container">
-          <!-- Các câu riêng biệt rơi xuống cùng lúc -->
-          <div class="vertical-col vertical-body-line dropped" data-vn="Dị chủng hoang cổ Thôn Nhật Thần Lang, sinh ra giữa ngọn lửa hỗn độn thuở hồng hoang thái sơ.">
-            荒古异种吞日神狼，自太初混沌烈火中孕育而生。
-          </div>
-          <div class="vertical-col vertical-body-line dropped" data-vn="Thân hình hắn tựa núi non huyền thiết sừng sững, khung xương khắc sâu thần văn thôn phệ viễn cổ, sâu thẳm trong cơ thể ngưng tụ lõi thái dương chí thuần cuồng bạo.">
-            其身躯如玄铁山岳，骨骼镌刻着上古吞噬神纹，体内深处凝铸着至纯至狂之太阳炽核。
-          </div>
-          <div class="vertical-col vertical-body-line dropped" data-vn="Thuở hồng hoang mới khai mở, mười vầng mặt trời thiêu đốt dữ dội trên vòm trời, vạn vật sinh linh chìm trong biển lửa cháy rụi ngàn dặm.">
-            相传洪荒初开，天穹十日肆虐，万物生灵焦土千里。
-          </div>
-          <div class="vertical-col vertical-body-line dropped" data-vn="Thần Lang đạp rách hư không, há miệng nuốt trọn chín vầng thái dương rực lửa, khóa vĩnh viễn năng lượng cuồng bạo thiêu rụi chúng sinh vào huyết mạch và thần hồn.">
-            神狼踏碎太虚长空，张口生吞九天炽烈神轮，硬生生将焚尽众生的暴虐太阳锁入狼骨血脉与神魂深处。
-          </div>
-          <div class="vertical-col vertical-body-line dropped" data-vn="Nơi ánh mắt hắn nhìn qua, nhật nguyệt lu mờ, cõi trần tịch mịch; khi tiếng gầm vang lên, ngàn sao run rẩy, chỉ còn lại cõi đêm vĩnh hằng và uy áp cuồng diễm vô biên.">
-            无尽烈阳在其脏腑间化为苍茫狂焰，双眸凝视之处，炽日黯然，八荒失色；长啸骤起之时，群星战栗，唯留亘古长夜与滔天炎威。
-          </div>
-        </div>
+        <div class="vertical-col vertical-badge" id="lore-badge"></div>
+        <div class="vertical-col vertical-quote" id="lore-quote"></div>
+        <div class="vertical-lore-body-container" id="lore-body-container"></div>
       </div>
     </section>
 
   </main>
 
   <!-- Script điều khiển Stepper, Loading, Theme Toggle & Bilingual Tooltips -->
-  <script src="scripts/main.js?v=20260917_sentence_drop"></script>
+  <script src="scripts/main.js?v=20260917_dark_sun_webp"></script>
 </body>
 </html>
