@@ -21,7 +21,7 @@
   <link rel="preload" as="image" href="assets/loading2.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
 
   <!-- Vertical Scroll Stylesheet -->
-  <link rel="stylesheet" href="styles/style.css?v=20260917_slowspin" />
+  <link rel="stylesheet" href="styles/style.css?v=20260917_themetoggle" />
 </head>
 <body>
 
@@ -57,6 +57,26 @@
     <div class="top-left-code" data-vn="Họa sĩ Thao Quang · 2026">
       thaoquang2452 - 2026
     </div>
+
+    <!-- Nút chuyển đổi Giao diện Sáng / Tối (Light/Dark Mode Toggle) -->
+    <div class="top-bar-actions">
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Chuyển đổi giao diện Sáng / Tối" data-vn="Chuyển đổi chế độ Sáng / Tối (Light / Dark Mode)">
+        <span class="theme-toggle-icon theme-icon-sun" aria-hidden="true">
+          <!-- Biểu tượng Thái Dương (Sun Icon) -->
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4.5"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        </span>
+        <span class="theme-toggle-icon theme-icon-moon" aria-hidden="true">
+          <!-- Biểu tượng Huyền Nguyệt (Moon Icon) -->
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+        <span class="theme-toggle-text" id="theme-toggle-text">暗夜</span>
+      </button>
+    </div>
   </header>
 
   <!-- ========================================================================
@@ -66,28 +86,28 @@
 
     <!-- Họa tiết góc cửa sổ Gothic Trung Cổ (Medieval Window Tracery Corners) -->
     <svg class="medieval-corner medieval-corner-tl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
-      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
     </svg>
     <svg class="medieval-corner medieval-corner-tr" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
-      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
     </svg>
     <svg class="medieval-corner medieval-corner-bl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
-      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
     </svg>
     <svg class="medieval-corner medieval-corner-br" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
-      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
-      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
-      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.65" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="var(--svg-ink)" stroke-width="1" opacity="0.3" />
+      <circle cx="18" cy="18" r="4" fill="var(--svg-cinnabar)" opacity="0.8" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="var(--svg-gold)" stroke-width="0.8" opacity="0.5" />
     </svg>
 
     <!-- LỀ TRÁI: STEPPER 3 BƯỚC DỌC & CỘT VĂN TỰ TIỂU SỬ DỌC (TIẾNG TRUNG + TOOLTIP VIỆT) -->
@@ -102,9 +122,9 @@
         <!-- Cung quỹ đạo kép (Double Orbital Arc Track) ôm trọn nửa vầng Thái Dương lớn sát mép trái -->
         <svg class="solar-arc-svg" viewBox="0 0 140 320" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Vòng quỹ đạo ngoài nét mực mờ -->
-          <path class="arc-track-outer" d="M 68 70 A 112 112 0 0 1 68 250" stroke="#141210" stroke-width="1.4" stroke-opacity="0.25" stroke-linecap="round" />
+          <path class="arc-track-outer" d="M 68 70 A 112 112 0 0 1 68 250" stroke="var(--svg-ink)" stroke-width="1.4" stroke-opacity="0.25" stroke-linecap="round" />
           <!-- Vòng quỹ đạo trong ánh vàng kim cổ -->
-          <path class="arc-track-inner" d="M 62 76 A 104 104 0 0 1 62 244" stroke="#b8860b" stroke-width="0.8" stroke-opacity="0.4" stroke-dasharray="3 3" stroke-linecap="round" />
+          <path class="arc-track-inner" d="M 62 76 A 104 104 0 0 1 62 244" stroke="var(--svg-gold)" stroke-width="0.8" stroke-opacity="0.5" stroke-dasharray="3 3" stroke-linecap="round" />
         </svg>
 
         <!-- 3 Nút Tinh Tú đính trên cung tròn -->
@@ -140,12 +160,12 @@
     <section class="center-scroll-wing">
       <!-- Họa tiết khung vòm cửa sổ Gothic trung cổ làm nền phía sau tranh -->
       <svg class="cathedral-window-arch" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M40 580 V260 C40 140 200 40 200 40 C200 40 360 140 360 260 V580" stroke="#b8860b" stroke-width="1.5" opacity="0.35" />
-        <path d="M56 580 V270 C56 160 200 65 200 65 C200 65 344 160 344 270 V580" stroke="#141210" stroke-width="1" opacity="0.18" />
-        <circle cx="200" cy="180" r="48" stroke="#b8860b" stroke-width="1.2" opacity="0.4" />
-        <circle cx="170" cy="205" r="22" stroke="#141210" stroke-width="0.8" opacity="0.25" />
-        <circle cx="230" cy="205" r="22" stroke="#141210" stroke-width="0.8" opacity="0.25" />
-        <circle cx="200" cy="155" r="22" stroke="#141210" stroke-width="0.8" opacity="0.25" />
+        <path d="M40 580 V260 C40 140 200 40 200 40 C200 40 360 140 360 260 V580" stroke="var(--svg-gold)" stroke-width="1.5" opacity="0.4" />
+        <path d="M56 580 V270 C56 160 200 65 200 65 C200 65 344 160 344 270 V580" stroke="var(--svg-ink)" stroke-width="1" opacity="0.2" />
+        <circle cx="200" cy="180" r="48" stroke="var(--svg-gold)" stroke-width="1.2" opacity="0.45" />
+        <circle cx="170" cy="205" r="22" stroke="var(--svg-ink)" stroke-width="0.8" opacity="0.25" />
+        <circle cx="230" cy="205" r="22" stroke="var(--svg-ink)" stroke-width="0.8" opacity="0.25" />
+        <circle cx="200" cy="155" r="22" stroke="var(--svg-ink)" stroke-width="0.8" opacity="0.25" />
       </svg>
 
       <div class="character-art-frame" id="character-art-frame">
@@ -194,7 +214,7 @@
 
   </main>
 
-  <!-- Script điều khiển Stepper, Loading & Bilingual Tooltips -->
-  <script src="scripts/main.js?v=20260917_sentences"></script>
+  <!-- Script điều khiển Stepper, Loading, Theme Toggle & Bilingual Tooltips -->
+  <script src="scripts/main.js?v=20260917_themetoggle"></script>
 </body>
 </html>

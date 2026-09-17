@@ -8,11 +8,46 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initLoader();
   initVerticalStepper();
   initBilingualTooltip();
   initMultiLayerParallax();
 });
+
+/* ==========================================================================
+   0. THEME TOGGLE (LIGHT / DARK MODE)
+   ========================================================================== */
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const toggleText = document.getElementById('theme-toggle-text');
+  const root = document.documentElement;
+
+  // Khôi phục tùy chọn đã lưu hoặc dùng Dark Mode làm mặc định
+  const savedTheme = localStorage.getItem('relhi-theme') || 'dark';
+  applyTheme(savedTheme);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('relhi-theme', newTheme);
+    });
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+      if (toggleText) toggleText.textContent = '暗夜';
+      if (toggleBtn) toggleBtn.setAttribute('title', 'Đang ở chế độ Tối (Nhấn để chuyển Sáng)');
+    } else {
+      root.removeAttribute('data-theme');
+      if (toggleText) toggleText.textContent = '白昼';
+      if (toggleBtn) toggleBtn.setAttribute('title', 'Đang ở chế độ Sáng (Nhấn để chuyển Tối)');
+    }
+  }
+}
 
 /* ==========================================================================
    1. PRELOADER - OPTION 3: SPLIT PALACE DOORS & MAIN PAGE INTRO CASCADE

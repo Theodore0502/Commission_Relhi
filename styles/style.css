@@ -5,7 +5,7 @@
    ========================================================================== */
 
 :root {
-  /* Editorial Palette: Pure Xuan Paper & Cinnabar Seal */
+  /* Editorial Palette: Pure Xuan Paper & Cinnabar Seal (Light Mode) */
   --bg-main: #faf8f5;
   --bg-subtle: #f2efe9;
   --text-main: #141210;
@@ -15,9 +15,38 @@
   --border-accent: #b91c1c;
 
   /* Traditional Pigments */
-  --cinnabar-red: #b91c1c; /* Chu sa / Cinnabar Seal */
+  --cinnabar-red: #b91c1c;
   --crimson-vermilion: #cf382b;
   --gold-accent: #b8860b;
+
+  /* Decorative specific variables */
+  --stepper-gradient: radial-gradient(ellipse at 0% 50%, rgba(222, 212, 192, 0.75) 0%, rgba(238, 230, 216, 0.4) 50%, transparent 85%);
+  --node-bg: var(--bg-main);
+  --node-border: var(--text-main);
+  --node-ring: rgba(184, 134, 11, 0.35);
+  --stage-shadow: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
+  --viewport-border: rgba(20, 18, 16, 0.08);
+  --viewport-filigree: rgba(184, 134, 11, 0.25);
+  --topbar-border: rgba(20, 18, 16, 0.06);
+  --svg-ink: #141210;
+  --svg-gold: #b8860b;
+  --svg-cinnabar: #b91c1c;
+  --sun-shadow: drop-shadow(0 3px 10px rgba(185, 28, 28, 0.16));
+  --loader-bg: #f4eee2;
+  --shutter-bg: #fdfbf5;
+  --loader-shadow-2: drop-shadow(0 4px 16px rgba(20, 18, 16, 0.12));
+  --loader-shadow-1: drop-shadow(0 4px 18px rgba(185, 28, 28, 0.18));
+
+  /* Tooltip Bilingual Theme Variables (Light Mode: Nền trắng ngà giấy xuyến, chữ đen mực tàu) */
+  --tooltip-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 248, 245, 0.97) 100%);
+  --tooltip-text: #141210;
+  --tooltip-text-muted: #4e4a44;
+  --tooltip-border: rgba(184, 134, 11, 0.38);
+  --tooltip-filigree: rgba(184, 134, 11, 0.18);
+  --tooltip-shadow: 0 16px 36px rgba(20, 18, 16, 0.14), 0 0 0 1px rgba(185, 28, 28, 0.18), 0 0 20px rgba(184, 134, 11, 0.12);
+  --tooltip-title: #8c251d;
+  --tooltip-sub: #78716c;
+  --tooltip-text-shadow: none;
 
   /* Classical Typography */
   --font-hanzi: "PingFang SC", "Microsoft YaHei", "Noto Serif TC", "Source Han Serif", serif;
@@ -27,6 +56,51 @@
 
   /* Animation Easing */
   --ease-scroll: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  /* Editorial Dark Mode Palette: Obsidian Xuan Ink & Cinnabar Seal */
+  --bg-main: #0c0b0a;
+  --bg-subtle: #161412;
+  --text-main: #f5f0e6;
+  --text-muted: #c4bbb0;
+  --text-light: #948b7f;
+  --border-light: rgba(245, 240, 230, 0.12);
+  --border-accent: #e53e3e;
+
+  /* Traditional Pigments */
+  --cinnabar-red: #e53e3e;
+  --crimson-vermilion: #ff5747;
+  --gold-accent: #d4af37;
+
+  /* Decorative specific variables */
+  --stepper-gradient: radial-gradient(ellipse at 0% 50%, rgba(229, 62, 62, 0.15) 0%, rgba(212, 175, 55, 0.06) 50%, transparent 85%);
+  --node-bg: #181512;
+  --node-border: rgba(245, 240, 230, 0.5);
+  --node-ring: rgba(212, 175, 55, 0.4);
+  --stage-shadow: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 25px rgba(229, 62, 62, 0.15));
+  --viewport-border: rgba(245, 240, 230, 0.08);
+  --viewport-filigree: rgba(212, 175, 55, 0.28);
+  --topbar-border: rgba(245, 240, 230, 0.08);
+  --svg-ink: #f5f0e6;
+  --svg-gold: #d4af37;
+  --svg-cinnabar: #e53e3e;
+  --sun-shadow: drop-shadow(0 0 16px rgba(229, 62, 62, 0.45));
+  --loader-bg: #080706;
+  --shutter-bg: #0a0908;
+  --loader-shadow-2: drop-shadow(0 0 25px rgba(212, 175, 55, 0.25));
+  --loader-shadow-1: drop-shadow(0 0 22px rgba(229, 62, 62, 0.4));
+
+  /* Tooltip Bilingual Theme Variables (Dark Mode: Nền đen huyền bí, chữ sáng ngà) */
+  --tooltip-bg: linear-gradient(135deg, rgba(28, 24, 22, 0.96) 0%, rgba(18, 15, 14, 0.98) 100%);
+  --tooltip-text: #f5f0e6;
+  --tooltip-text-muted: #c4bbb0;
+  --tooltip-border: rgba(184, 134, 11, 0.45);
+  --tooltip-filigree: rgba(184, 134, 11, 0.2);
+  --tooltip-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(185, 28, 28, 0.3), 0 0 24px rgba(185, 28, 28, 0.25), inset 0 0 16px rgba(184, 134, 11, 0.08);
+  --tooltip-title: #eed6aa;
+  --tooltip-sub: #8c8273;
+  --tooltip-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 *, *::before, *::after {
@@ -70,7 +144,7 @@ html, body {
   justify-content: center;
   overflow: hidden;
   pointer-events: auto;
-  background: #f4eee2;
+  background: var(--loader-bg);
 
   /* Chiều cao của Gate khớp chuẩn 100% chiều cao màn hình (viewport height) */
   --gate-h: 100vh;
@@ -97,7 +171,7 @@ html, body {
   overflow: hidden;
   will-change: transform;
   transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
-  background: #fdfbf5; /* Màu giấy xuyến đồng nhất với Gate mới */
+  background: var(--shutter-bg);
 }
 
 .shutter-left {
@@ -206,7 +280,7 @@ html, body {
   object-fit: contain;
   z-index: 1;
   animation: spin-counter 22s linear infinite;
-  filter: drop-shadow(0 4px 16px rgba(20, 18, 16, 0.12));
+  filter: var(--loader-shadow-2);
   pointer-events: none;
 }
 
@@ -220,7 +294,7 @@ html, body {
   object-fit: contain;
   z-index: 2;
   animation: spin-counter 16s linear infinite;
-  filter: drop-shadow(0 4px 18px rgba(185, 28, 28, 0.18));
+  filter: var(--loader-shadow-1);
   pointer-events: none;
 }
 
@@ -261,7 +335,7 @@ html, body {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  border-bottom: 1px solid rgba(20, 18, 16, 0.06);
+  border-bottom: 1px solid var(--topbar-border);
 }
 
 .top-left-code {
@@ -270,6 +344,68 @@ html, body {
   letter-spacing: 0.25em;
   color: var(--text-light);
   text-transform: uppercase;
+}
+
+/* Nút chuyển chế độ Sáng / Tối cổ phong */
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-hanzi);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--cinnabar-red);
+  color: var(--cinnabar-red);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(185, 28, 28, 0.15);
+}
+
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s var(--ease-scroll);
+}
+
+/* Ẩn / Hiện icon theo theme hiện tại */
+:root:not([data-theme="dark"]) .theme-icon-sun {
+  display: none;
+}
+:root:not([data-theme="dark"]) .theme-icon-moon {
+  display: flex;
+}
+
+[data-theme="dark"] .theme-icon-sun {
+  display: flex;
+  color: var(--gold-accent);
+}
+[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+.theme-toggle-text {
+  font-weight: 600;
+  line-height: 1;
 }
 
 /* ==========================================================================
@@ -303,8 +439,8 @@ html, body {
   border-right: 1px solid var(--border-light);
   padding-right: clamp(10px, 1.4vw, 18px);
   padding-left: 0;
-  /* Gradient ấm áp ở rìa trái màn hình giúp vầng mặt trời nổi bật trên nền giấy */
-  background: radial-gradient(ellipse at 0% 50%, rgba(222, 212, 192, 0.75) 0%, rgba(238, 230, 216, 0.4) 50%, transparent 85%);
+  background: var(--stepper-gradient);
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 
 /* 4-Step Solar Arc Nav - Kích thước lớn, căn chính giữa màn hình */
@@ -338,8 +474,8 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 3px 10px rgba(185, 28, 28, 0.16));
-  transition: transform 0.7s cubic-bezier(0.34, 1.35, 0.64, 1);
+  filter: var(--sun-shadow);
+  transition: transform 0.7s cubic-bezier(0.34, 1.35, 0.64, 1), filter 0.35s ease;
   transform-origin: center center;
   will-change: transform;
 }
@@ -405,9 +541,9 @@ html, body {
   width: clamp(25px, 3.1vh, 29px);
   height: clamp(25px, 3.1vh, 29px);
   border-radius: 50%;
-  background: var(--bg-main);
-  border: 1.5px solid var(--text-main);
-  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 3.5px rgba(184, 134, 11, 0.35);
+  background: var(--node-bg);
+  border: 1.5px solid var(--node-border);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 3.5px var(--node-ring);
   display: grid;
   place-items: center;
   font-size: clamp(0.66rem, 1.1vh, 0.74rem);
@@ -421,14 +557,14 @@ html, body {
 .step-item.solar-node:hover .step-indicator {
   border-color: var(--cinnabar-red);
   color: var(--cinnabar-red);
-  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4px rgba(185, 28, 28, 0.3);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4px rgba(185, 28, 28, 0.35);
 }
 
 .step-item.solar-node.active .step-indicator {
   background: var(--cinnabar-red);
   border-color: var(--cinnabar-red);
   color: #ffffff;
-  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4.5px rgba(185, 28, 28, 0.4), 0 2px 10px rgba(185, 28, 28, 0.3);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4.5px rgba(185, 28, 28, 0.45), 0 2px 10px rgba(185, 28, 28, 0.35);
   transform: scale(1.12);
 }
 
@@ -563,10 +699,11 @@ html, body {
   width: auto;
   height: auto;
   aspect-ratio: 3182 / 2041;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
+  filter: var(--stage-shadow);
   user-select: none;
   margin-top: -2.2vh;
   margin-left: clamp(20px, 3.5vw, 55px); /* Dịch nhân vật sang phải để stepper có nhiều không gian thoáng đãng */
+  transition: filter 0.35s ease;
 }
 
 /* Ảnh spacer vô hình giữ chuẩn khung hình gốc 3182x2041 */
@@ -644,17 +781,19 @@ html, body {
 /* Medieval Filigree Border Frame */
 .scroll-viewport {
   position: relative;
-  border: 1px solid rgba(20, 18, 16, 0.08);
+  border: 1px solid var(--viewport-border);
   border-radius: 4px;
+  transition: border-color 0.35s ease;
 }
 
 .scroll-viewport::after {
   content: '';
   position: absolute;
   inset: 4px;
-  border: 1px solid rgba(184, 134, 11, 0.25);
+  border: 1px solid var(--viewport-filigree);
   pointer-events: none;
   border-radius: 2px;
+  transition: border-color 0.35s ease;
 }
 
 /* ==========================================================================
@@ -689,23 +828,19 @@ html, body {
   position: fixed;
   pointer-events: none;
   z-index: 10000;
-  background: linear-gradient(135deg, rgba(28, 24, 22, 0.96) 0%, rgba(18, 15, 14, 0.98) 100%);
-  color: #fdfaf4;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
   padding: 14px 18px 16px 18px;
   border-radius: 8px;
-  border: 1px solid rgba(184, 134, 11, 0.45);
-  box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(185, 28, 28, 0.3),
-    0 0 24px rgba(185, 28, 28, 0.25),
-    inset 0 0 16px rgba(184, 134, 11, 0.08);
+  border: 1px solid var(--tooltip-border);
+  box-shadow: var(--tooltip-shadow);
   font-family: var(--font-sans);
   writing-mode: horizontal-tb; /* Luôn hiển thị dòng ngang */
   text-orientation: mixed;
   max-width: 380px;
   opacity: 0;
   transform: translateY(8px) scale(0.97);
-  transition: opacity 0.22s var(--ease-scroll), transform 0.22s var(--ease-scroll);
+  transition: opacity 0.22s var(--ease-scroll), transform 0.22s var(--ease-scroll), background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -718,7 +853,7 @@ html, body {
   left: 4px;
   right: 4px;
   bottom: 4px;
-  border: 1px solid rgba(184, 134, 11, 0.2);
+  border: 1px solid var(--tooltip-filigree);
   border-radius: 5px;
   pointer-events: none;
 }
@@ -735,7 +870,7 @@ html, body {
   gap: 8px;
   margin-bottom: 10px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+  border-bottom: 1px solid var(--tooltip-border);
   position: relative;
 }
 
@@ -767,7 +902,7 @@ html, body {
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #eed6aa;
+  color: var(--tooltip-title);
   text-transform: uppercase;
 }
 
@@ -775,7 +910,7 @@ html, body {
   margin-left: auto;
   font-size: 0.62rem;
   letter-spacing: 0.1em;
-  color: #8c8273;
+  color: var(--tooltip-sub);
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -785,9 +920,9 @@ html, body {
   font-size: 0.75rem; /* Giảm 2 bậc từ 0.88rem/0.92rem trước đây */
   font-weight: 400;
   line-height: 1.6;
-  color: #f5f0e6;
+  color: var(--tooltip-text);
   letter-spacing: 0.025em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  text-shadow: var(--tooltip-text-shadow);
   display: flex;
   flex-direction: column;
   gap: 7px; /* Khoảng cách giữa các câu xuống dòng */
