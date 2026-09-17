@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>礼晞 · 吞日神狼 | 东方神话古风立绘档案</title>
+  <meta name="description" content="礼晞（Relhi）· 吞日神狼 - 东方神话古风立绘，画师操光（Thao Quang）原创角色设计作品。" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- Google Fonts: Classical East Asian Serif & Modern Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload Gate & Loading Wheel Assets for Instant First Frame -->
+  <link rel="preload" as="image" href="assets/Gate_left.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/Gate_right.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/loading1.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/loading2.webp?v=20260917_fast" type="image/webp" fetchpriority="high" />
+
+  <!-- Vertical Scroll Stylesheet -->
+  <link rel="stylesheet" href="styles/style.css?v=20260917_slowspin" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. LOADING SCREEN (Vòng tròn mặt trời 2 lớp xoay tròn)
+       ======================================================================== -->
+  <div id="loader-screen">
+    <!-- Option 3: Hai cánh cửa cổng thần điện tách đôi sang 2 bên -->
+    <div class="loader-shutter shutter-left">
+      <img src="assets/Gate_left.webp?v=20260917_fast" alt="Cổng Thần Điện Tả Môn" class="shutter-door-img shutter-door-left" draggable="false" decoding="sync" fetchpriority="high" />
+      <div class="shutter-seam-gold"></div>
+    </div>
+    <div class="loader-shutter shutter-right">
+      <img src="assets/Gate_right.webp?v=20260917_fast" alt="Cổng Thần Điện Hữu Môn" class="shutter-door-img shutter-door-right" draggable="false" decoding="sync" fetchpriority="high" />
+      <div class="shutter-seam-gold"></div>
+    </div>
+
+    <!-- Cụm nội dung vòng xoay mặt trời & danh hiệu ở tâm -->
+    <div class="loader-content" id="loader-content">
+      <div class="sun-loader-asset" id="sun-loader-asset">
+        <!-- Lớp 2 ở sau, lớn nhất, xoay ngược chiều kim đồng hồ -->
+        <img src="assets/loading2.webp?v=20260917_fast" alt="Vòng thần luân ngoại quyển (Loading 2)" class="loading-layer loading-layer-2" draggable="false" decoding="sync" fetchpriority="high" />
+        <!-- Lớp 1 nằm giữa -->
+        <img src="assets/loading1.webp?v=20260917_fast" alt="Vầng thái dương nội quyển (Loading 1)" class="loading-layer loading-layer-1" draggable="false" decoding="sync" fetchpriority="high" />
+        <!-- Lớp 0 nằm trước cùng: to hơn 25%, xoay chậm hơn 20%, opacity 50% -->
+        <img src="assets/loading1.webp?v=20260917_fast" alt="Vầng thái dương tiền cảnh quang hoàn (Loading 0)" class="loading-layer loading-layer-0" draggable="false" decoding="sync" fetchpriority="high" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Minimal Nav (Song ngữ qua data-vn) -->
+  <header class="top-bar">
+    <div class="top-left-code" data-vn="Họa sĩ Thao Quang · 2026">
+      thaoquang2452 - 2026
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. MAIN VIEWPORT (TAM LIÊN THƯ HỌA TRỤC & VIỀN CỬA SỔ TRUNG CỔ)
+       ======================================================================== -->
+  <main class="scroll-viewport">
+
+    <!-- Họa tiết góc cửa sổ Gothic Trung Cổ (Medieval Window Tracery Corners) -->
+    <svg class="medieval-corner medieval-corner-tl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
+      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+    </svg>
+    <svg class="medieval-corner medieval-corner-tr" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
+      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+    </svg>
+    <svg class="medieval-corner medieval-corner-bl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
+      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+    </svg>
+    <svg class="medieval-corner medieval-corner-br" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 56 V16 C4 9.37 9.37 4 16 4 H56" stroke="#b8860b" stroke-width="1.5" opacity="0.5" />
+      <path d="M12 56 V20 C12 15.58 15.58 12 20 12 H56" stroke="#141210" stroke-width="1" opacity="0.25" />
+      <circle cx="18" cy="18" r="4" fill="#b91c1c" opacity="0.6" />
+      <path d="M4 28 C14 28 28 14 28 4" stroke="#b8860b" stroke-width="0.8" opacity="0.4" />
+    </svg>
+
+    <!-- LỀ TRÁI: STEPPER 3 BƯỚC DỌC & CỘT VĂN TỰ TIỂU SỬ DỌC (TIẾNG TRUNG + TOOLTIP VIỆT) -->
+    <section class="left-scroll-wing">
+      <!-- 3-Step Solar Arc Nav (Thái Dương Thần Luân Chu Kích) -->
+      <nav class="vertical-stepper solar-arc-stepper" aria-label="Vertical Solar Step Navigation">
+        <!-- Thái Dương Thần Luân ở tâm cung tròn, xoay nhẹ mỗi khi chọn mục mới -->
+        <div class="solar-sun-wrapper" aria-hidden="true">
+          <img src="assets/loading1.webp" alt="Thái Dương Thần Luân" class="solar-sun-img" id="stepper-sun-img" decoding="async">
+        </div>
+
+        <!-- Cung quỹ đạo kép (Double Orbital Arc Track) ôm trọn nửa vầng Thái Dương lớn sát mép trái -->
+        <svg class="solar-arc-svg" viewBox="0 0 140 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Vòng quỹ đạo ngoài nét mực mờ -->
+          <path class="arc-track-outer" d="M 68 70 A 112 112 0 0 1 68 250" stroke="#141210" stroke-width="1.4" stroke-opacity="0.25" stroke-linecap="round" />
+          <!-- Vòng quỹ đạo trong ánh vàng kim cổ -->
+          <path class="arc-track-inner" d="M 62 76 A 104 104 0 0 1 62 244" stroke="#b8860b" stroke-width="0.8" stroke-opacity="0.4" stroke-dasharray="3 3" stroke-linecap="round" />
+        </svg>
+
+        <!-- 3 Nút Tinh Tú đính trên cung tròn -->
+        <div class="solar-nodes-container" role="tablist" aria-label="Danh sách Quyển">
+          <button class="step-item solar-node node-pos-1 active" data-step="1" title="卷一 · 吞日" role="tab" aria-selected="true">
+            <span class="step-indicator">01</span>
+            <div class="step-label-wrap" data-vn="Bước 01: Quyển 1 · Lễ Hy Thôn Nhật Thần Lang">
+              <span class="step-hanzi">卷一</span>
+              <span class="step-name">吞日</span>
+            </div>
+          </button>
+
+          <button class="step-item solar-node node-pos-2" data-step="2" title="卷二 · 荒殿" role="tab" aria-selected="false">
+            <span class="step-indicator">02</span>
+            <div class="step-label-wrap" data-vn="Bước 02: Quyển 2 · Hoang Điện Phế Tích & Huyết Đằng">
+              <span class="step-hanzi">卷二</span>
+              <span class="step-name">荒殿</span>
+            </div>
+          </button>
+
+          <button class="step-item solar-node node-pos-3" data-step="3" title="卷三 · 日核" role="tab" aria-selected="false">
+            <span class="step-indicator">03</span>
+            <div class="step-label-wrap" data-vn="Bước 03: Quyển 3 · Thần trượng giam giữ lõi thái dương">
+              <span class="step-hanzi">卷三</span>
+              <span class="step-name">日核</span>
+            </div>
+          </button>
+        </div>
+      </nav>
+    </section>
+
+    <!-- TRUNG TÂM: NHÂN VẬT ĐỨNG TRƯỚC KHUNG VÒM CỬA SỔ TRUNG CỔ -->
+    <section class="center-scroll-wing">
+      <!-- Họa tiết khung vòm cửa sổ Gothic trung cổ làm nền phía sau tranh -->
+      <svg class="cathedral-window-arch" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 580 V260 C40 140 200 40 200 40 C200 40 360 140 360 260 V580" stroke="#b8860b" stroke-width="1.5" opacity="0.35" />
+        <path d="M56 580 V270 C56 160 200 65 200 65 C200 65 344 160 344 270 V580" stroke="#141210" stroke-width="1" opacity="0.18" />
+        <circle cx="200" cy="180" r="48" stroke="#b8860b" stroke-width="1.2" opacity="0.4" />
+        <circle cx="170" cy="205" r="22" stroke="#141210" stroke-width="0.8" opacity="0.25" />
+        <circle cx="230" cy="205" r="22" stroke="#141210" stroke-width="0.8" opacity="0.25" />
+        <circle cx="200" cy="155" r="22" stroke="#141210" stroke-width="0.8" opacity="0.25" />
+      </svg>
+
+      <div class="character-art-frame" id="character-art-frame">
+        <div class="parallax-stage" id="parallax-stage">
+          <!-- Ảnh mẫu spacer trong suốt để khung tự động khóa đúng tỷ lệ gốc 3182x2041 -->
+          <img src="assets/Art/sky.webp" alt="" class="art-layer-spacer" aria-hidden="true" decoding="async" />
+
+          <!-- Cụm 1: Sky + Sun (Hậu cảnh) -->
+          <div class="art-layer-cluster cluster-bg" id="cluster-bg">
+            <img src="assets/Art/sky.webp" alt="Bầu trời viễn cổ (Sky)" class="art-layer art-sky" draggable="false" decoding="async" />
+            <img src="assets/Art/sun.webp" alt="Thái dương thần luân (Sun)" class="art-layer art-sun" draggable="false" decoding="async" />
+          </div>
+
+          <!-- Cụm 2: P3 + P2 + P1 (Trung cảnh: P3 sau P2 và trước Sun) -->
+          <div class="art-layer-cluster cluster-mid" id="cluster-mid">
+            <img src="assets/Art/p3.webp" alt="Huyết đằng trụ thạch (P3)" class="art-layer art-p3" draggable="false" decoding="async" />
+            <img src="assets/Art/p2.webp" alt="Phế tích thần điện xa (P2)" class="art-layer art-p2" draggable="false" decoding="async" />
+            <img src="assets/Art/p1.webp" alt="Thánh thạch bệ đài (P1)" class="art-layer art-p1" draggable="false" decoding="async" />
+          </div>
+
+          <!-- Cụm 3: O1 + Relhi + F1 (Tiền cảnh: F1 nằm trên tất cả) -->
+          <div class="art-layer-cluster cluster-fg" id="cluster-fg">
+            <img src="assets/Art/o1.webp" alt="Quang hoàn linh khí (O1)" class="art-layer art-o1" draggable="false" decoding="async" />
+            <img src="assets/Art/relhi.webp" alt="Lễ Hy · Thôn Nhật Thần Lang (Relhi)" class="art-layer art-relhi" draggable="false" decoding="async" />
+            <img src="assets/Art/f1.webp" alt="Mảnh thạch phi toái (F1)" class="art-layer art-f1" draggable="false" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LỀ PHẢI: KHỐI NỘI DUNG VĂN TỰ THƠ & TIỂU SỬ DỌC (TYPEWRITER TỪ TRÊN XUỐNG) -->
+    <section class="right-scroll-wing">
+      <!-- Các cột văn tự chạy dọc từ trên xuống dưới (vertical-rl) -->
+      <div class="vertical-lore-container" id="vertical-lore-container">
+        <div class="vertical-col vertical-badge" id="lore-badge" data-vn="Lễ Hy (Lǐ Xī) · Thôn Nhật Thần Lang (Hồ sơ Thần Tướng Thái Cổ)">
+          礼 · 晞 · 吞 · 日
+        </div>
+        <div class="vertical-col vertical-quote" id="lore-quote" data-vn="“Thái dương nuốt trọn hóa thành tiếng gầm xé toạc đêm đen, chín tầng trời chìm vào tĩnh mịch hóa cõi hoang sơ. Một mình dẫm đạp hư vô nuốt vầng thiên nhật, cõi vạn cổ càn khôn gom trọn trong một ý niệm.”">
+          “ 烈阳入口化长啸，九天沉寂尽成荒；独踏玄虚吞烈曜，万古乾坤一念藏。 ”
+        </div>
+        <div class="vertical-col vertical-body" id="lore-body" data-vn="Dị chủng hoang cổ Thôn Nhật Thần Lang, sinh ra giữa ngọn lửa hỗn độn thuở hồng hoang thái sơ. Thân hình hắn tựa núi non huyền thiết sừng sững, khung xương khắc sâu thần văn thôn phệ viễn cổ, sâu thẳm trong cơ thể ngưng tụ lõi thái dương chí thuần cuồng bạo. Thuở hồng hoang vạn vật chìm trong thảm cảnh mười vầng mặt trời thiêu đốt cõi trần, Thần Lang đạp rách hư không, há miệng nuốt trọn vầng thái dương chín tầng trời, khóa vĩnh viễn nhiệt lượng cuồng nộ vào từng giọt huyết mạch và cốt tủy. Nơi ánh mắt hắn nhìn qua, vạn vật nín lặng, nhật nguyệt lu mờ, chỉ còn lại tiếng gầm thấu tận cửu trùng thiên cùng uy áp cuồng diễm vô biên.">
+          荒古异种吞日神狼，自太初混沌烈火中孕育而生。其身躯如玄铁山岳，骨骼镌刻着上古吞噬神纹，体内深处凝铸着至纯至狂之太阳炽核。相传洪荒初开，天穹十日肆虐，万物生灵焦土千里。神狼踏碎太虚长空，张口生吞九天炽烈神轮，硬生生将焚尽众生的暴虐太阳锁入狼骨血脉与神魂深处。无尽烈阳在其脏腑间化为苍茫狂焰，双眸凝视之处，炽日黯然，八荒失色；长啸骤起之时，群星战栗，唯留亘古长夜与滔天炎威。
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Script điều khiển Stepper, Loading & Bilingual Tooltips -->
+  <script src="scripts/main.js?v=20260917_sentences"></script>
+</body>
+</html>

@@ -1,0 +1,978 @@
+/* ==========================================================================
+   RELHI - TRADITIONAL EAST ASIAN CALLIGRAPHY SCROLL LAYOUT
+   Writing Direction: Vertical-RL (Top-to-Bottom, Right-to-Left)
+   Aesthetic: Ancient Chinese Hanging Scroll & Modern Editorial Exhibition
+   ========================================================================== */
+
+:root {
+  /* Editorial Palette: Pure Xuan Paper & Cinnabar Seal */
+  --bg-main: #faf8f5;
+  --bg-subtle: #f2efe9;
+  --text-main: #141210;
+  --text-muted: #4e4a44;
+  --text-light: #635e54;
+  --border-light: rgba(20, 18, 16, 0.12);
+  --border-accent: #b91c1c;
+
+  /* Traditional Pigments */
+  --cinnabar-red: #b91c1c; /* Chu sa / Cinnabar Seal */
+  --crimson-vermilion: #cf382b;
+  --gold-accent: #b8860b;
+
+  /* Classical Typography */
+  --font-hanzi: "PingFang SC", "Microsoft YaHei", "Noto Serif TC", "Source Han Serif", serif;
+  --font-display: 'Cinzel', serif;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Animation Easing */
+  --ease-scroll: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 112.5%; /* Giảm 10% từ mức trước (125% * 0.9 = 112.5%) */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow: hidden; /* Giữ trọn vẹn trong 1 màn hình */
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Cinnabar Selection */
+::selection {
+  background: var(--cinnabar-red);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   1. PRELOADER - OPTION 3: SPLIT PALACE DOORS (KHAI MỞ THẦN ĐIỆN CỔ)
+   ========================================================================== */
+#loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto;
+  background: #f4eee2;
+
+  /* Chiều cao của Gate khớp chuẩn 100% chiều cao màn hình (viewport height) */
+  --gate-h: 100vh;
+  --gate-h: 100dvh;
+  --gate-w-half: calc(var(--gate-h) * 3562 / 2922);
+  /* Đường kính vòng tròn ngoài trên cổng (2200 / 2922 = 0.7529) */
+  --gate-outer-ring: calc(var(--gate-h) * 0.7529);
+  /* Đường kính vòng tròn lõi trong trên cổng (1176 / 2922 = 0.4025) */
+  --gate-inner-circle: calc(var(--gate-h) * 0.4025);
+}
+
+#loader-screen.hidden {
+  display: none !important;
+  pointer-events: none;
+}
+
+/* Hai cánh cửa thần điện tách đôi trái và phải - Chuẩn xác 50% mỗi bên tiếp giáp tại tâm */
+.loader-shutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
+  background: #fdfbf5; /* Màu giấy xuyến đồng nhất với Gate mới */
+}
+
+.shutter-left {
+  left: 0;
+}
+
+.shutter-right {
+  right: 0;
+}
+
+/* Asset cánh cửa Gate (1781x2922 mỗi cánh): mép tiếp giáp chuẩn tại tâm 50% */
+.shutter-door-img {
+  position: absolute;
+  top: 50%;
+  height: var(--gate-h);
+  width: var(--gate-w-half);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Cánh trái: mép phải của Gate_left nằm ngay mép phải của shutter-left (tâm màn hình) */
+.shutter-door-left {
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Cánh phải: mép trái của Gate_right nằm ngay mép trái của shutter-right (tâm màn hình) */
+.shutter-door-right {
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Nẹp chỉ vàng son tiếp giáp chính giữa tâm 50% hoàn hảo */
+.shutter-left .shutter-seam-gold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, rgba(184, 134, 11, 0.4) 15%, rgba(184, 134, 11, 0.9) 50%, rgba(184, 134, 11, 0.4) 85%, transparent);
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.35);
+  z-index: 5;
+}
+
+.shutter-right .shutter-seam-gold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, rgba(184, 134, 11, 0.4) 15%, rgba(184, 134, 11, 0.9) 50%, rgba(184, 134, 11, 0.4) 85%, transparent);
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.35);
+  z-index: 5;
+}
+
+/* Cụm vòng xoay mặt trời & danh hiệu ở tâm */
+.loader-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s var(--ease-scroll), transform 0.4s var(--ease-scroll);
+  pointer-events: none;
+}
+
+/* Khi bắt đầu Outro: nội dung mờ dần và thu nhỏ nhẹ */
+#loader-screen.content-fading .loader-content {
+  opacity: 0;
+  transform: scale(0.92) translateY(-8px);
+}
+
+/* Khi 2 cánh cửa tách đôi mở ra 2 bên */
+#loader-screen.doors-opening {
+  background: transparent !important;
+  pointer-events: none;
+}
+
+#loader-screen.doors-opening .shutter-left {
+  transform: translate3d(-100%, 0, 0);
+}
+
+#loader-screen.doors-opening .shutter-right {
+  transform: translate3d(100%, 0, 0);
+}
+
+/* Khung vòng xoay mặt trời: Kích thước KHỚP CHÍNH XÁC với vòng tròn ngoại quyển của Gate */
+.sun-loader-asset {
+  position: relative;
+  width: var(--gate-outer-ring);
+  height: var(--gate-outer-ring);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Lớp 2 (loading2.webp): Khớp chuẩn 100% với vòng tròn ngoại quyển của Gate, xoay ngược chiều kim đồng hồ (xoay chậm 22s) */
+.loading-layer-2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  animation: spin-counter 22s linear infinite;
+  filter: drop-shadow(0 4px 16px rgba(20, 18, 16, 0.12));
+  pointer-events: none;
+}
+
+/* Lớp 1 (loading1.webp): Khớp vừa khít 100% với lõi vòng tròn nội quyển của Gate, xoay ngược chiều kim đồng hồ (xoay chậm 16s) */
+.loading-layer-1 {
+  position: absolute;
+  top: 23.275%;
+  left: 23.275%;
+  width: 53.45%;
+  height: 53.45%;
+  object-fit: contain;
+  z-index: 2;
+  animation: spin-counter 16s linear infinite;
+  filter: drop-shadow(0 4px 18px rgba(185, 28, 28, 0.18));
+  pointer-events: none;
+}
+
+/* Lớp 0 (loading1.webp): Nằm trước nhất, to hơn 25%, opacity 50%, xoay thuận chiều kim đồng hồ (xoay chậm 19s) */
+.loading-layer-0 {
+  position: absolute;
+  top: 16.595%;
+  left: 16.595%;
+  width: 66.81%;
+  height: 66.81%;
+  object-fit: contain;
+  z-index: 3;
+  opacity: 0.5;
+  animation: spin-clockwise 19s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.35));
+  pointer-events: none;
+}
+
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-counter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* ==========================================================================
+   2. TOP BAR (MINIMAL HEADER)
+   ========================================================================== */
+.top-bar {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(8px, 1.5vh, 18px) clamp(20px, 3.5vw, 48px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid rgba(20, 18, 16, 0.06);
+}
+
+.top-left-code {
+  font-size: clamp(0.72rem, 1.25vh, 0.82rem);
+  font-family: var(--font-sans);
+  letter-spacing: 0.25em;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. MAIN TRIPTYCH LAYOUT (LEFT WING - CENTER - RIGHT WING)
+   ========================================================================== */
+.scroll-viewport {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  padding: clamp(4px, 1vh, 12px) clamp(14px, 1.8vw, 32px) clamp(4px, 1vh, 12px) 0;
+  display: grid;
+  grid-template-columns: minmax(190px, 230px) 1fr minmax(240px, 420px);
+  gap: clamp(14px, 2vw, 36px);
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   4. LEFT WING: STEPPER THÁI DƯƠNG (CHÍNH GIỮA MÀN HÌNH THEO CHIỀU DỌC)
+   ========================================================================== */
+.left-scroll-wing {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+  border-right: 1px solid var(--border-light);
+  padding-right: clamp(10px, 1.4vw, 18px);
+  padding-left: 0;
+  /* Gradient ấm áp ở rìa trái màn hình giúp vầng mặt trời nổi bật trên nền giấy */
+  background: radial-gradient(ellipse at 0% 50%, rgba(222, 212, 192, 0.75) 0%, rgba(238, 230, 216, 0.4) 50%, transparent 85%);
+}
+
+/* 4-Step Solar Arc Nav - Kích thước lớn, căn chính giữa màn hình */
+.solar-arc-stepper {
+  position: relative;
+  width: clamp(140px, 14vw, 180px);
+  height: clamp(280px, 48vh, 380px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-top: -3.8vh; /* Dịch nhẹ lên trên để nằm ở tâm trục dọc hoàn hảo */
+  user-select: none;
+}
+
+/* Thái Dương Thần Luân (loading1.png) đặt tại rìa trái, cắt đúng 1 nửa, kích thước lớn */
+.solar-sun-wrapper {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(180px, 26vh, 240px);
+  height: clamp(180px, 26vh, 240px);
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solar-sun-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 10px rgba(185, 28, 28, 0.16));
+  transition: transform 0.7s cubic-bezier(0.34, 1.35, 0.64, 1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* SVG Cung quỹ đạo kép ôm trọn nửa vầng thái dương lớn sát mép trái */
+.solar-arc-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container chứa 4 nút tinh tú */
+.solar-nodes-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.step-item.solar-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Tọa độ 3 nút uốn lượn đối xứng theo cung tròn thái dương (Cố định vị trí tuyệt đối, không bị nhảy) */
+.node-pos-1 {
+  top: 24%;
+  left: 52%;
+  transform: translate(-14px, -50%);
+}
+
+.node-pos-2 {
+  top: 50%;
+  left: 76%;
+  transform: translate(-14px, -50%);
+}
+
+.node-pos-3 {
+  top: 76%;
+  left: 52%;
+  transform: translate(-14px, -50%);
+}
+
+.step-item.solar-node:hover {
+  /* Giữ nguyên tọa độ đứng yên, không dịch chuyển hay phóng to làm nhảy giao diện */
+  transform: translate(-14px, -50%);
+}
+
+/* Vòng tròn số tinh tú (chữ số trên cung quỹ đạo) */
+.step-indicator {
+  width: clamp(25px, 3.1vh, 29px);
+  height: clamp(25px, 3.1vh, 29px);
+  border-radius: 50%;
+  background: var(--bg-main);
+  border: 1.5px solid var(--text-main);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 3.5px rgba(184, 134, 11, 0.35);
+  display: grid;
+  place-items: center;
+  font-size: clamp(0.66rem, 1.1vh, 0.74rem);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--text-main);
+  transition: all 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.step-item.solar-node:hover .step-indicator {
+  border-color: var(--cinnabar-red);
+  color: var(--cinnabar-red);
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4px rgba(185, 28, 28, 0.3);
+}
+
+.step-item.solar-node.active .step-indicator {
+  background: var(--cinnabar-red);
+  border-color: var(--cinnabar-red);
+  color: #ffffff;
+  box-shadow: 0 0 0 2px var(--bg-main), 0 0 0 4.5px rgba(185, 28, 28, 0.4), 0 2px 10px rgba(185, 28, 28, 0.3);
+  transform: scale(1.12);
+}
+
+.step-label-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-hanzi {
+  font-family: var(--font-hanzi);
+  font-size: clamp(0.76rem, 1.3vh, 0.9rem);
+  color: var(--text-light);
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease;
+}
+
+.step-name {
+  font-size: clamp(0.74rem, 1.25vh, 0.84rem);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.step-item.solar-node:hover .step-hanzi,
+.step-item.solar-node:hover .step-name {
+  color: var(--text-main);
+}
+
+.step-item.solar-node.active .step-hanzi,
+.step-item.solar-node.active .step-name {
+  color: var(--cinnabar-red);
+  font-weight: 700;
+}
+
+
+/* Vertical Text Columns Container (writing-mode: vertical-rl) */
+.vertical-lore-container {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: row-reverse; /* Classical order: reads right to left */
+  gap: clamp(14px, 1.6vw, 26px);
+  padding: clamp(6px, 1vh, 12px) 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+/* Individual Vertical Text Column */
+.vertical-col {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.16em;
+  line-height: 2.25;
+  overflow: visible;
+  height: 100%;
+}
+
+.vertical-badge {
+  font-family: var(--font-hanzi);
+  font-size: clamp(0.88rem, 1.45vh, 1.05rem);
+  font-weight: 700;
+  color: var(--text-main);
+  border-right: 2px solid var(--cinnabar-red);
+  padding-right: 6px;
+}
+
+.vertical-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.5vh, 1.08rem);
+  color: var(--cinnabar-red);
+}
+
+.vertical-body {
+  font-size: clamp(0.79rem, 1.3vh, 0.9rem);
+  color: var(--text-muted);
+  text-align: justify;
+}
+
+/* ==========================================================================
+   5. CENTER: CHARACTER ARTWORK WITH MEDIEVAL WINDOW TRACERY
+   ========================================================================== */
+.center-scroll-wing {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Medieval Cathedral Window Arch Background behind Character */
+.cathedral-window-arch {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 92%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.character-art-frame {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.parallax-stage {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 94%;
+  width: auto;
+  height: auto;
+  aspect-ratio: 3182 / 2041;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
+  user-select: none;
+  margin-top: -2.2vh;
+  margin-left: clamp(20px, 3.5vw, 55px); /* Dịch nhân vật sang phải để stepper có nhiều không gian thoáng đãng */
+}
+
+/* Ảnh spacer vô hình giữ chuẩn khung hình gốc 3182x2041 */
+.art-layer-spacer {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  aspect-ratio: 3182 / 2041;
+  object-fit: contain;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 3 Cụm Layer Parallax */
+.art-layer-cluster {
+  position: absolute;
+  inset: -4.5%; /* Mở rộng 4.5% biên để khi dịch chuyển parallax biên độ lớn không lộ viền */
+  width: 109%;
+  height: 109%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cluster-bg  { z-index: 10; }
+.cluster-mid { z-index: 20; }
+.cluster-fg  { z-index: 30; will-change: transform; filter: none !important; }
+
+/* Các tệp ảnh layer (xếp chồng đúng thứ tự pixel-perfect) */
+.art-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Thứ tự từ sau ra trước: sky -> sun -> p3 -> p2 -> p1 -> o1 -> relhi -> f1 */
+.art-sky   { z-index: 1; }
+.art-sun   { z-index: 2; }
+.art-p3    { z-index: 3; }
+.art-p2    { z-index: 4; }
+.art-p1    { z-index: 5; }
+.art-o1    { z-index: 6; transform: scaleX(-1); }
+.art-relhi { 
+  z-index: 7; 
+  transform: scaleX(-1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: none !important;
+}
+.art-f1    { z-index: 8; }
+
+/* ==========================================================================
+   MEDIEVAL GOTHIC WINDOW TRACERY (HỌA TIẾT CỬA SỔ TRUNG CỔ VIỀN GÓC)
+   ========================================================================== */
+.medieval-corner {
+  position: absolute;
+  width: clamp(38px, 5vh, 56px);
+  height: clamp(38px, 5vh, 56px);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.75;
+}
+
+.medieval-corner-tl { top: clamp(8px, 1.2vh, 16px); left: clamp(14px, 2vw, 28px); }
+.medieval-corner-tr { top: clamp(8px, 1.2vh, 16px); right: clamp(14px, 2vw, 28px); transform: scaleX(-1); }
+.medieval-corner-bl { bottom: clamp(8px, 1.2vh, 16px); left: clamp(14px, 2vw, 28px); transform: scaleY(-1); }
+.medieval-corner-br { bottom: clamp(8px, 1.2vh, 16px); right: clamp(14px, 2vw, 28px); transform: scale(-1, -1); }
+
+/* Medieval Filigree Border Frame */
+.scroll-viewport {
+  position: relative;
+  border: 1px solid rgba(20, 18, 16, 0.08);
+  border-radius: 4px;
+}
+
+.scroll-viewport::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(184, 134, 11, 0.25);
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   6. RIGHT WING: KHỐI NỘI DUNG VĂN TỰ THƠ & TIỂU SỬ DỌC (VERTICAL-RL)
+   ========================================================================== */
+.right-scroll-wing {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-left: 1px solid var(--border-light);
+  padding-left: clamp(14px, 2vw, 28px);
+  padding-right: clamp(10px, 1.5vw, 20px);
+}
+
+/* ==========================================================================
+   7. BILINGUAL TOOLTIP POPUP (DÒNG NGANG TIẾNG VIỆT KHI HOVER)
+   ========================================================================== */
+[data-vn] {
+  cursor: help;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  position: relative;
+}
+
+[data-vn]:hover {
+  color: var(--cinnabar-red);
+}
+
+#vn-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  background: linear-gradient(135deg, rgba(28, 24, 22, 0.96) 0%, rgba(18, 15, 14, 0.98) 100%);
+  color: #fdfaf4;
+  padding: 14px 18px 16px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(184, 134, 11, 0.45);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(185, 28, 28, 0.3),
+    0 0 24px rgba(185, 28, 28, 0.25),
+    inset 0 0 16px rgba(184, 134, 11, 0.08);
+  font-family: var(--font-sans);
+  writing-mode: horizontal-tb; /* Luôn hiển thị dòng ngang */
+  text-orientation: mixed;
+  max-width: 380px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.22s var(--ease-scroll), transform 0.22s var(--ease-scroll);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Nẹp góc hoàng kim cổ phong trên tooltip */
+#vn-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+#vn-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Header của khung dịch nghĩa */
+.vn-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+  position: relative;
+}
+
+/* Con dấu đỏ Chu Sa (Cinnabar Seal Stamp) */
+.vn-tooltip-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #cf382b 0%, #a81717 100%);
+  border: 1px solid #ff7b72;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(185, 28, 28, 0.4), inset 0 0 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.seal-char {
+  font-family: var(--font-hanzi);
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #fff9f0;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.vn-tooltip-title {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #eed6aa;
+  text-transform: uppercase;
+}
+
+.vn-tooltip-sub {
+  margin-left: auto;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: #8c8273;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Nội dung bản dịch nghĩa (Giảm 2 bậc cỡ chữ, mỗi câu một dòng riêng biệt) */
+.vn-tooltip-body {
+  font-size: 0.75rem; /* Giảm 2 bậc từ 0.88rem/0.92rem trước đây */
+  font-weight: 400;
+  line-height: 1.6;
+  color: #f5f0e6;
+  letter-spacing: 0.025em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 7px; /* Khoảng cách giữa các câu xuống dòng */
+}
+
+.tooltip-sentence {
+  margin: 0;
+  padding-left: 10px;
+  position: relative;
+  text-align: left;
+}
+
+/* Chấm son nhỏ đầu mỗi câu xuống dòng */
+.tooltip-sentence::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: var(--cinnabar-red);
+  box-shadow: 0 0 4px rgba(185, 28, 28, 0.6);
+}
+
+/* ==========================================================================
+   OPTION 3: MAIN PAGE INTRO CASCADE (KHAI MỞ THẦN ĐIỆN INTRO)
+   When body has class .page-active, elements reveal with majestic choreography
+   ========================================================================== */
+
+/* 1. Header Top Bar */
+.top-bar {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-scroll);
+}
+body.page-active .top-bar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Central Artwork & Gothic Lancet Arch */
+.center-scroll-wing {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: none;
+  transition: opacity 0.3s ease;
+}
+body.page-active .center-scroll-wing {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: none;
+}
+
+/* 3. Left Wing Bamboo Slips (Staggered slide-in from left) */
+.step-item {
+  opacity: 0;
+  transition: opacity 0.35s ease, color 0.3s ease;
+}
+body.page-active .step-item {
+  opacity: 1;
+}
+body.page-active .step-item:nth-child(1) { transition-delay: 0.05s; }
+body.page-active .step-item:nth-child(2) { transition-delay: 0.10s; }
+body.page-active .step-item:nth-child(3) { transition-delay: 0.15s; }
+
+/* 4. Right Wing Vertical Lore Columns (Cascade Drop from top) */
+.vertical-col {
+  opacity: 0;
+  transform: translateY(-14px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+body.page-active .vertical-col {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.page-active #lore-badge { transition-delay: 0.06s; }
+body.page-active #lore-quote { transition-delay: 0.12s; }
+body.page-active #lore-body  { transition-delay: 0.18s; }
+
+/* 5. Gothic Medieval Corners */
+.medieval-corner {
+  opacity: 0;
+  transition: opacity 0.75s ease 0.45s;
+}
+body.page-active .medieval-corner {
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE FALLBACK CHO TABLET & MOBILE
+   ========================================================================== */
+@media (max-width: 900px) {
+  html, body {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .scroll-viewport {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+    padding: clamp(12px, 2vh, 20px) 16px;
+    gap: 24px;
+  }
+
+  .left-scroll-wing {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px 0;
+    justify-content: center;
+    background: none;
+  }
+
+  .solar-arc-stepper {
+    margin-top: 0;
+  }
+
+  .center-scroll-wing {
+    overflow: visible;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .character-art-frame {
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .parallax-stage {
+    margin-left: 0;
+    margin-top: 0;
+    max-height: none;
+    width: 100%;
+  }
+
+  .cathedral-window-arch {
+    width: 100%;
+    height: 100%;
+  }
+
+  .right-scroll-wing {
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+    padding: 20px 0;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .vertical-lore-container {
+    height: auto;
+    max-height: 440px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 10px 16px;
+  }
+
+  .scroll-viewport {
+    padding: 12px 10px;
+    gap: 18px;
+  }
+
+  .solar-arc-stepper {
+    width: 100%;
+    max-width: 240px;
+    height: 280px;
+  }
+
+  .vertical-lore-container {
+    max-height: 360px;
+    gap: 16px;
+  }
+
+  .vertical-body {
+    line-height: 1.85;
+  }
+}
+
